@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>53B8DCA3-82B5-4D67-B723-3E5D60440AC0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>flows</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0E43655A-C2D4-4FB1-86C4-277C7DC8ACFD</key>
+		<string>https://github.com/flowsapp/MVP.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>flows/flows.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0E43655A-C2D4-4FB1-86C4-277C7DC8ACFD</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/flowsapp/MVP.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0E43655A-C2D4-4FB1-86C4-277C7DC8ACFD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0E43655A-C2D4-4FB1-86C4-277C7DC8ACFD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MVP</string>
+		</dict>
+	</array>
+</dict>
+</plist>
