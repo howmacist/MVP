@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42789D2019785A2C00003D42 /* addRow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1C19785A2C00003D42 /* addRow@2x.png */; };
+		42789D2119785A2C00003D42 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1D19785A2C00003D42 /* bg@2x.png */; };
+		42789D2219785A2C00003D42 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1E19785A2C00003D42 /* default@2x.png */; };
+		42789D2319785A2C00003D42 /* mainLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1F19785A2C00003D42 /* mainLogo@2x.png */; };
 		42ABB204196E21AD0024C2A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB203196E21AD0024C2A8 /* Foundation.framework */; };
 		42ABB206196E21AD0024C2A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB205196E21AD0024C2A8 /* CoreGraphics.framework */; };
 		42ABB208196E21AD0024C2A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB207196E21AD0024C2A8 /* UIKit.framework */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42789D1C19785A2C00003D42 /* addRow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addRow@2x.png"; sourceTree = "<group>"; };
+		42789D1D19785A2C00003D42 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		42789D1E19785A2C00003D42 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		42789D1F19785A2C00003D42 /* mainLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainLogo@2x.png"; sourceTree = "<group>"; };
 		42ABB200196E21AD0024C2A8 /* flows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42ABB203196E21AD0024C2A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42ABB205196E21AD0024C2A8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,6 +89,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42789D1B19785A2C00003D42 /* imageAssets */ = {
+			isa = PBXGroup;
+			children = (
+				42789D1C19785A2C00003D42 /* addRow@2x.png */,
+				42789D1D19785A2C00003D42 /* bg@2x.png */,
+				42789D1E19785A2C00003D42 /* default@2x.png */,
+				42789D1F19785A2C00003D42 /* mainLogo@2x.png */,
+			);
+			path = imageAssets;
+			sourceTree = "<group>";
+		};
 		42ABB1F7196E21AD0024C2A8 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +133,7 @@
 		42ABB209196E21AD0024C2A8 /* flows */ = {
 			isa = PBXGroup;
 			children = (
+				42789D1B19785A2C00003D42 /* imageAssets */,
 				42ABB212196E21AD0024C2A8 /* AppDelegate.h */,
 				42ABB213196E21AD0024C2A8 /* AppDelegate.m */,
 				42ABB215196E21AD0024C2A8 /* Main_iPhone.storyboard */,
@@ -232,9 +252,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				42ABB21A196E21AD0024C2A8 /* Main_iPad.storyboard in Resources */,
+				42789D2019785A2C00003D42 /* addRow@2x.png in Resources */,
+				42789D2319785A2C00003D42 /* mainLogo@2x.png in Resources */,
 				42ABB21F196E21AD0024C2A8 /* Images.xcassets in Resources */,
+				42789D2119785A2C00003D42 /* bg@2x.png in Resources */,
 				42ABB217196E21AD0024C2A8 /* Main_iPhone.storyboard in Resources */,
 				42ABB20E196E21AD0024C2A8 /* InfoPlist.strings in Resources */,
+				42789D2219785A2C00003D42 /* default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
