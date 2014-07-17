@@ -11,6 +11,15 @@
 		42789D2119785A2C00003D42 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1D19785A2C00003D42 /* bg@2x.png */; };
 		42789D2219785A2C00003D42 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1E19785A2C00003D42 /* default@2x.png */; };
 		42789D2319785A2C00003D42 /* mainLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1F19785A2C00003D42 /* mainLogo@2x.png */; };
+		42789D3819785D9F00003D42 /* addRiverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D2619785D9F00003D42 /* addRiverObject.m */; };
+		42789D3919785D9F00003D42 /* FLmainmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D2819785D9F00003D42 /* FLmainmodel.m */; };
+		42789D3A19785D9F00003D42 /* FLoutsideWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D2A19785D9F00003D42 /* FLoutsideWrapper.m */; };
+		42789D3B19785D9F00003D42 /* insideWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D2C19785D9F00003D42 /* insideWrapper.m */; };
+		42789D3C19785D9F00003D42 /* SourceInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D2E19785D9F00003D42 /* SourceInfoModel.m */; };
+		42789D3D19785D9F00003D42 /* ValueDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D3019785D9F00003D42 /* ValueDetail.m */; };
+		42789D3E19785D9F00003D42 /* ValuesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D3219785D9F00003D42 /* ValuesModel.m */; };
+		42789D3F19785D9F00003D42 /* VariableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D3419785D9F00003D42 /* VariableModel.m */; };
+		42789D4019785D9F00003D42 /* FLminMaxFlows.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D3719785D9F00003D42 /* FLminMaxFlows.m */; };
 		42ABB204196E21AD0024C2A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB203196E21AD0024C2A8 /* Foundation.framework */; };
 		42ABB206196E21AD0024C2A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB205196E21AD0024C2A8 /* CoreGraphics.framework */; };
 		42ABB208196E21AD0024C2A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB207196E21AD0024C2A8 /* UIKit.framework */; };
@@ -42,6 +51,24 @@
 		42789D1D19785A2C00003D42 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		42789D1E19785A2C00003D42 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		42789D1F19785A2C00003D42 /* mainLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainLogo@2x.png"; sourceTree = "<group>"; };
+		42789D2519785D9F00003D42 /* addRiverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addRiverObject.h; sourceTree = "<group>"; };
+		42789D2619785D9F00003D42 /* addRiverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addRiverObject.m; sourceTree = "<group>"; };
+		42789D2719785D9F00003D42 /* FLmainmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLmainmodel.h; sourceTree = "<group>"; };
+		42789D2819785D9F00003D42 /* FLmainmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLmainmodel.m; sourceTree = "<group>"; };
+		42789D2919785D9F00003D42 /* FLoutsideWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLoutsideWrapper.h; sourceTree = "<group>"; };
+		42789D2A19785D9F00003D42 /* FLoutsideWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLoutsideWrapper.m; sourceTree = "<group>"; };
+		42789D2B19785D9F00003D42 /* insideWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = insideWrapper.h; sourceTree = "<group>"; };
+		42789D2C19785D9F00003D42 /* insideWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = insideWrapper.m; sourceTree = "<group>"; };
+		42789D2D19785D9F00003D42 /* SourceInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceInfoModel.h; sourceTree = "<group>"; };
+		42789D2E19785D9F00003D42 /* SourceInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceInfoModel.m; sourceTree = "<group>"; };
+		42789D2F19785D9F00003D42 /* ValueDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueDetail.h; sourceTree = "<group>"; };
+		42789D3019785D9F00003D42 /* ValueDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueDetail.m; sourceTree = "<group>"; };
+		42789D3119785D9F00003D42 /* ValuesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValuesModel.h; sourceTree = "<group>"; };
+		42789D3219785D9F00003D42 /* ValuesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValuesModel.m; sourceTree = "<group>"; };
+		42789D3319785D9F00003D42 /* VariableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableModel.h; sourceTree = "<group>"; };
+		42789D3419785D9F00003D42 /* VariableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableModel.m; sourceTree = "<group>"; };
+		42789D3619785D9F00003D42 /* FLminMaxFlows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLminMaxFlows.h; sourceTree = "<group>"; };
+		42789D3719785D9F00003D42 /* FLminMaxFlows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLminMaxFlows.m; sourceTree = "<group>"; };
 		42ABB200196E21AD0024C2A8 /* flows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42ABB203196E21AD0024C2A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42ABB205196E21AD0024C2A8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,6 +125,38 @@
 			path = imageAssets;
 			sourceTree = "<group>";
 		};
+		42789D2419785D9F00003D42 /* customObjects */ = {
+			isa = PBXGroup;
+			children = (
+				42789D2519785D9F00003D42 /* addRiverObject.h */,
+				42789D2619785D9F00003D42 /* addRiverObject.m */,
+				42789D2719785D9F00003D42 /* FLmainmodel.h */,
+				42789D2819785D9F00003D42 /* FLmainmodel.m */,
+				42789D2919785D9F00003D42 /* FLoutsideWrapper.h */,
+				42789D2A19785D9F00003D42 /* FLoutsideWrapper.m */,
+				42789D2B19785D9F00003D42 /* insideWrapper.h */,
+				42789D2C19785D9F00003D42 /* insideWrapper.m */,
+				42789D2D19785D9F00003D42 /* SourceInfoModel.h */,
+				42789D2E19785D9F00003D42 /* SourceInfoModel.m */,
+				42789D2F19785D9F00003D42 /* ValueDetail.h */,
+				42789D3019785D9F00003D42 /* ValueDetail.m */,
+				42789D3119785D9F00003D42 /* ValuesModel.h */,
+				42789D3219785D9F00003D42 /* ValuesModel.m */,
+				42789D3319785D9F00003D42 /* VariableModel.h */,
+				42789D3419785D9F00003D42 /* VariableModel.m */,
+			);
+			path = customObjects;
+			sourceTree = "<group>";
+		};
+		42789D3519785D9F00003D42 /* customDataHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				42789D3619785D9F00003D42 /* FLminMaxFlows.h */,
+				42789D3719785D9F00003D42 /* FLminMaxFlows.m */,
+			);
+			path = customDataHandlers;
+			sourceTree = "<group>";
+		};
 		42ABB1F7196E21AD0024C2A8 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +190,8 @@
 		42ABB209196E21AD0024C2A8 /* flows */ = {
 			isa = PBXGroup;
 			children = (
+				42789D2419785D9F00003D42 /* customObjects */,
+				42789D3519785D9F00003D42 /* customDataHandlers */,
 				42789D1B19785A2C00003D42 /* imageAssets */,
 				42ABB212196E21AD0024C2A8 /* AppDelegate.h */,
 				42ABB213196E21AD0024C2A8 /* AppDelegate.m */,
@@ -273,9 +334,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42789D3919785D9F00003D42 /* FLmainmodel.m in Sources */,
+				42789D3A19785D9F00003D42 /* FLoutsideWrapper.m in Sources */,
+				42789D3C19785D9F00003D42 /* SourceInfoModel.m in Sources */,
+				42789D3E19785D9F00003D42 /* ValuesModel.m in Sources */,
+				42789D3D19785D9F00003D42 /* ValueDetail.m in Sources */,
+				42789D4019785D9F00003D42 /* FLminMaxFlows.m in Sources */,
 				42ABB21D196E21AD0024C2A8 /* ViewController.m in Sources */,
+				42789D3B19785D9F00003D42 /* insideWrapper.m in Sources */,
 				42ABB214196E21AD0024C2A8 /* AppDelegate.m in Sources */,
+				42789D3F19785D9F00003D42 /* VariableModel.m in Sources */,
 				42ABB210196E21AD0024C2A8 /* main.m in Sources */,
+				42789D3819785D9F00003D42 /* addRiverObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
