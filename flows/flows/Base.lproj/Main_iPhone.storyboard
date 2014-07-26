@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--My Side Panel View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="mySidePanelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -21,10 +21,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="BFy-VP-qgl">
             <objects>
-                <viewController storyboardIdentifier="rightViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Oj7-u0-ecD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rightViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Oj7-u0-ecD" customClass="resultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pj0-Nc-Zk6"/>
                         <viewControllerLayoutGuide type="bottom" id="a0a-l2-Twf"/>
@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="572" y="598"/>
         </scene>
-        <!--View Controller-->
+        <!--Center View Controller-->
         <scene sceneID="ll7-Sa-5sf">
             <objects>
-                <viewController storyboardIdentifier="centerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pnK-4O-RC3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="centerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pnK-4O-RC3" customClass="centerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VTe-wb-ArF"/>
                         <viewControllerLayoutGuide type="bottom" id="mic-x5-54N"/>
@@ -55,7 +55,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjs-gm-ThM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-69"/>
+            <point key="canvasLocation" x="572" y="-96"/>
+        </scene>
+        <!--Add Instance View Controller-->
+        <scene sceneID="eVW-Ww-fJC">
+            <objects>
+                <viewController id="w7U-Lq-bdg" customClass="addInstanceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tfT-Xl-jFn"/>
+                        <viewControllerLayoutGuide type="bottom" id="gmE-Mo-czP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aY5-ox-w67">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fHZ-V3-eOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962" y="-96"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
