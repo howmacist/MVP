@@ -9,6 +9,9 @@
 #import "centerViewController.h"
 
 @interface centerViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *addInstanceButton;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UITableView *mainTable;
 
 @end
 
