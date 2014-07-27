@@ -19,6 +19,7 @@
 
 @implementation centerViewController {
     ISRefreshControl *refreshControl;
+    NSMutableArray *chosenObjectArray;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,6 +36,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //_mainTable.contentInset = UIEdgeInsetsMake(-44.f, 0.f, -44.f, 0.f);
+    
+    chosenObjectArray = [[NSMutableArray alloc] init];
+    
     _mainTable.tableHeaderView = nil;
     _mainTable.tableFooterView = nil;
     refreshControl = [[ISRefreshControl alloc] init];
@@ -44,6 +48,13 @@
     [refreshControl addTarget:self
                        action:@selector(refresh)
              forControlEvents:UIControlEventValueChanged];
+    
+    if (chosenObjectArray.count == 0) {
+        _mainTable.hidden = YES;
+    }else{
+        _mainTable.hidden = NO;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,7 +93,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    if (chosenObjectArray.count == 0) {
+        return 1;
+    }else{
+        return chosenObjectArray.count;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
