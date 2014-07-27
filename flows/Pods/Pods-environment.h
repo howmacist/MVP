@@ -12,6 +12,18 @@
 #define COCOAPODS_VERSION_MINOR_GDIIndexBar 3
 #define COCOAPODS_VERSION_PATCH_GDIIndexBar 2
 
+// ISMethodSwizzling
+#define COCOAPODS_POD_AVAILABLE_ISMethodSwizzling
+#define COCOAPODS_VERSION_MAJOR_ISMethodSwizzling 0
+#define COCOAPODS_VERSION_MINOR_ISMethodSwizzling 0
+#define COCOAPODS_VERSION_PATCH_ISMethodSwizzling 2
+
+// ISRefreshControl
+#define COCOAPODS_POD_AVAILABLE_ISRefreshControl
+#define COCOAPODS_VERSION_MAJOR_ISRefreshControl 1
+#define COCOAPODS_VERSION_MINOR_ISRefreshControl 4
+#define COCOAPODS_VERSION_PATCH_ISRefreshControl 1
+
 // JASidePanels
 #define COCOAPODS_POD_AVAILABLE_JASidePanels
 #define COCOAPODS_VERSION_MAJOR_JASidePanels 1

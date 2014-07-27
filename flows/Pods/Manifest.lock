@@ -1,17 +1,23 @@
 PODS:
   - GDIIndexBar (0.3.2)
+  - ISMethodSwizzling (0.0.2)
+  - ISRefreshControl (1.4.1):
+    - ISMethodSwizzling (~> 0.0.2)
   - JASidePanels (1.3.2)
   - JSONModel (0.13.0)
   - TYMActivityIndicatorView (0.2.0)
 
 DEPENDENCIES:
   - GDIIndexBar
+  - ISRefreshControl (~> 1.4.1)
   - JASidePanels
   - JSONModel
   - TYMActivityIndicatorView
 
 SPEC CHECKSUMS:
   GDIIndexBar: e0d93d1a20092c4d6be921a2d229d87dc3edaf53
+  ISMethodSwizzling: 867d17ca20bd0ca2d3e7c1516a0c1f0ee9ca94c9
+  ISRefreshControl: a22ffc641933ca489b85d192d591546f93c47d07
   JASidePanels: ca943907d88a0738c80755204c6098969d43e4e9
   JSONModel: 62ea96b49ea18a8b91ef89c249dba291d8601d82
   TYMActivityIndicatorView: b65789b48feca6f6d546831d8ae5ad62acd58403

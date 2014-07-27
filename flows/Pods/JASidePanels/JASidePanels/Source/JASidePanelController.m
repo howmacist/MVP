@@ -133,7 +133,7 @@ static char ja_kvoContext;
 - (void)_baseInit {
     self.style = JASidePanelSingleActive;
     self.leftGapPercentage = 0.8f;
-    self.rightGapPercentage = 0.8f;
+    self.rightGapPercentage = 1.0f;
     self.minimumMovePercentage = 0.15f;
     self.maximumAnimationDuration = 0.2f;
     self.bounceDuration = 0.1f;
@@ -278,23 +278,26 @@ static char ja_kvoContext;
 }
 
 - (void)styleContainer:(UIView *)container animate:(BOOL)animate duration:(NSTimeInterval)duration {
-    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRoundedRect:container.bounds cornerRadius:0.0f];
-    if (animate) {
-        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"shadowPath"];
-        animation.fromValue = (id)container.layer.shadowPath;
-        animation.toValue = (id)shadowPath.CGPath;
-        animation.duration = duration;
-        [container.layer addAnimation:animation forKey:@"shadowPath"];
-    }
-    container.layer.shadowPath = shadowPath.CGPath;	
-    container.layer.shadowColor = [UIColor blackColor].CGColor;
-    container.layer.shadowRadius = 10.0f;
-    container.layer.shadowOpacity = 0.75f;
-    container.clipsToBounds = NO;
+//    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRoundedRect:container.bounds cornerRadius:0.0f];
+//    if (animate) {
+//        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"shadowPath"];
+//        animation.fromValue = (id)container.layer.shadowPath;
+//        animation.toValue = (id)shadowPath.CGPath;
+//        animation.duration = duration;
+//        [container.layer addAnimation:animation forKey:@"shadowPath"];
+//    }
+//    container.layer.shadowPath = shadowPath.CGPath;	
+//    container.layer.shadowColor = [UIColor blackColor].CGColor;
+//    container.layer.shadowRadius = 10.0f;
+//    container.layer.shadowOpacity = 0.75f;
+//    container.clipsToBounds = NO;
+#pragma mark TODO container animation block
+    
 }
 
 - (void)stylePanel:(UIView *)panel {
-    panel.layer.cornerRadius = 6.0f;
+    //panel.layer.cornerRadius = 6.0f;
+    panel.layer.cornerRadius = 0.0f;
     panel.clipsToBounds = YES;
 }
 

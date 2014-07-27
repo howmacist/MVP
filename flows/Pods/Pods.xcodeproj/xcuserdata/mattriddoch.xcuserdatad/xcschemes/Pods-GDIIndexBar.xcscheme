@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EAAD636CDB614A12ACA41040"
+               BlueprintIdentifier = "0C18E9A1594B4CB88A6BA284"
                BuildableName = "libPods-GDIIndexBar.a"
                BlueprintName = "Pods-GDIIndexBar"
                ReferencedContainer = "container:Pods.xcodeproj">

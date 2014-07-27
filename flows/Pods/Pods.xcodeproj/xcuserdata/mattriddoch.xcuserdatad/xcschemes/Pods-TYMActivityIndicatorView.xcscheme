@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A798F4526ABA40E3876A053F"
+               BlueprintIdentifier = "3CEF0CF4645C4BF2BA0792F8"
                BuildableName = "libPods-TYMActivityIndicatorView.a"
                BlueprintName = "Pods-TYMActivityIndicatorView"
                ReferencedContainer = "container:Pods.xcodeproj">

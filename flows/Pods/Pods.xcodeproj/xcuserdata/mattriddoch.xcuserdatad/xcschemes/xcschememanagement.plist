@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-ISMethodSwizzling.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ISRefreshControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-JASidePanels.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>28B0DD7522CB4979B3E12FC8</key>
+		<key>0C18E9A1594B4CB88A6BA284</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C0A399E55554CDCB71AC6A4</key>
+		<key>0F3D9976D6DB49B5928ABB3B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B1EECC422034D2287A56F2F</key>
+		<key>2925B827B12949E0949FAF4A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A798F4526ABA40E3876A053F</key>
+		<key>3CEF0CF4645C4BF2BA0792F8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EAAD636CDB614A12ACA41040</key>
+		<key>52FDDF91ECE7477DABFF8318</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6333DE20D7F04BAD8BE18FD0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82BB1C166C684C638DA7E09D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

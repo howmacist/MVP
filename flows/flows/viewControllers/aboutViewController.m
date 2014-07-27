@@ -1,20 +1,19 @@
 //
-//  addInstanceViewController.m
+//  aboutViewController.m
 //  flows
 //
 //  Created by Matt Riddoch on 7/26/14.
 //  Copyright (c) 2014 Matt's in-house apps. All rights reserved.
 //
 
-#import "addInstanceViewController.h"
+#import "aboutViewController.h"
 
-@interface addInstanceViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-@property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@interface aboutViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *exitButton;
 
 @end
 
-@implementation addInstanceViewController
+@implementation aboutViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,13 +41,11 @@
     return UIStatusBarStyleLightContent;
 }
 
-#pragma mark - IBAction
+#pragma mark - IBActions
 
-- (IBAction)cancelClicked:(id)sender {
+- (IBAction)exitClicked:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)searchClicked:(id)sender {
-}
 
 @end

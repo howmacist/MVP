@@ -27,6 +27,10 @@
 		42789D6219844F0C00003D42 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D6119844F0C00003D42 /* add@2x.png */; };
 		42789D641984522600003D42 /* Logo_Dashboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D631984522600003D42 /* Logo_Dashboard@2x.png */; };
 		42789D66198452A900003D42 /* infoIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D65198452A900003D42 /* infoIcon@2x.png */; };
+		42789D691984647200003D42 /* aboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D681984647200003D42 /* aboutViewController.m */; };
+		42789D6D1984681C00003D42 /* dashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D6C1984681C00003D42 /* dashTableViewCell.m */; };
+		42789D7019848FD300003D42 /* searchHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D6E19848FD300003D42 /* searchHeader@2x.png */; };
+		42789D7119848FD300003D42 /* searchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D6F19848FD300003D42 /* searchIcon@2x.png */; };
 		42ABB204196E21AD0024C2A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB203196E21AD0024C2A8 /* Foundation.framework */; };
 		42ABB206196E21AD0024C2A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB205196E21AD0024C2A8 /* CoreGraphics.framework */; };
 		42ABB208196E21AD0024C2A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB207196E21AD0024C2A8 /* UIKit.framework */; };
@@ -88,6 +92,12 @@
 		42789D6119844F0C00003D42 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
 		42789D631984522600003D42 /* Logo_Dashboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo_Dashboard@2x.png"; sourceTree = "<group>"; };
 		42789D65198452A900003D42 /* infoIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infoIcon@2x.png"; sourceTree = "<group>"; };
+		42789D671984647200003D42 /* aboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutViewController.h; sourceTree = "<group>"; };
+		42789D681984647200003D42 /* aboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutViewController.m; sourceTree = "<group>"; };
+		42789D6B1984681C00003D42 /* dashTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dashTableViewCell.h; sourceTree = "<group>"; };
+		42789D6C1984681C00003D42 /* dashTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dashTableViewCell.m; sourceTree = "<group>"; };
+		42789D6E19848FD300003D42 /* searchHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchHeader@2x.png"; sourceTree = "<group>"; };
+		42789D6F19848FD300003D42 /* searchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchIcon@2x.png"; sourceTree = "<group>"; };
 		42ABB200196E21AD0024C2A8 /* flows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42ABB203196E21AD0024C2A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42ABB205196E21AD0024C2A8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +146,8 @@
 		42789D1B19785A2C00003D42 /* imageAssets */ = {
 			isa = PBXGroup;
 			children = (
+				42789D6E19848FD300003D42 /* searchHeader@2x.png */,
+				42789D6F19848FD300003D42 /* searchIcon@2x.png */,
 				42789D65198452A900003D42 /* infoIcon@2x.png */,
 				42789D631984522600003D42 /* Logo_Dashboard@2x.png */,
 				42789D6119844F0C00003D42 /* add@2x.png */,
@@ -190,8 +202,19 @@
 				42789D5C19843B4100003D42 /* resultViewController.m */,
 				42789D5E19843B5600003D42 /* addInstanceViewController.h */,
 				42789D5F19843B5600003D42 /* addInstanceViewController.m */,
+				42789D671984647200003D42 /* aboutViewController.h */,
+				42789D681984647200003D42 /* aboutViewController.m */,
 			);
 			path = viewControllers;
+			sourceTree = "<group>";
+		};
+		42789D6A1984681C00003D42 /* customRows */ = {
+			isa = PBXGroup;
+			children = (
+				42789D6B1984681C00003D42 /* dashTableViewCell.h */,
+				42789D6C1984681C00003D42 /* dashTableViewCell.m */,
+			);
+			path = customRows;
 			sourceTree = "<group>";
 		};
 		42ABB1F7196E21AD0024C2A8 = {
@@ -229,6 +252,7 @@
 		42ABB209196E21AD0024C2A8 /* flows */ = {
 			isa = PBXGroup;
 			children = (
+				42789D6A1984681C00003D42 /* customRows */,
 				42789D5419843A7900003D42 /* viewControllers */,
 				42789D2419785D9F00003D42 /* customObjects */,
 				42789D3519785D9F00003D42 /* customDataHandlers */,
@@ -351,12 +375,14 @@
 			files = (
 				42789D6219844F0C00003D42 /* add@2x.png in Resources */,
 				42789D2019785A2C00003D42 /* addRow@2x.png in Resources */,
+				42789D7019848FD300003D42 /* searchHeader@2x.png in Resources */,
 				42789D2319785A2C00003D42 /* mainLogo@2x.png in Resources */,
 				42789D66198452A900003D42 /* infoIcon@2x.png in Resources */,
 				42ABB21F196E21AD0024C2A8 /* Images.xcassets in Resources */,
 				42789D2119785A2C00003D42 /* bg@2x.png in Resources */,
 				42ABB217196E21AD0024C2A8 /* Main_iPhone.storyboard in Resources */,
 				42ABB20E196E21AD0024C2A8 /* InfoPlist.strings in Resources */,
+				42789D7119848FD300003D42 /* searchIcon@2x.png in Resources */,
 				42789D641984522600003D42 /* Logo_Dashboard@2x.png in Resources */,
 				42789D2219785A2C00003D42 /* default@2x.png in Resources */,
 			);
@@ -420,10 +446,12 @@
 				42789D3B19785D9F00003D42 /* insideWrapper.m in Sources */,
 				42789D5D19843B4100003D42 /* resultViewController.m in Sources */,
 				42ABB214196E21AD0024C2A8 /* AppDelegate.m in Sources */,
+				42789D691984647200003D42 /* aboutViewController.m in Sources */,
 				42789D5719843AB800003D42 /* mySidePanelViewController.m in Sources */,
 				42789D3F19785D9F00003D42 /* VariableModel.m in Sources */,
 				42789D5A19843B3300003D42 /* centerViewController.m in Sources */,
 				42ABB210196E21AD0024C2A8 /* main.m in Sources */,
+				42789D6D1984681C00003D42 /* dashTableViewCell.m in Sources */,
 				42789D3819785D9F00003D42 /* addRiverObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
