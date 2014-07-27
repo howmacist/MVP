@@ -10,12 +10,15 @@
 #import "GDIIndexBar.h"
 #import "TYMActivityIndicatorView.h"
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
+
 @interface addInstanceViewController () <UITableViewDelegate, UITableViewDataSource, GDIIndexBarDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UITableView *mainTable;
 @property (nonatomic, strong) TYMActivityIndicatorView *activityIndicatorView1;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 
 
 @end
@@ -138,6 +141,8 @@
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+
+#pragma mark - tableviewdelegates
 
 #pragma mark - tableviewdelegates
 
@@ -287,6 +292,117 @@
     return cell;
     
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    if (isInState) {
+        
+        NSArray *sectionArray = [queryHolder filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", [alphabetsArray objectAtIndex:indexPath.section]]];
+        NSArray *tempStateHolder = [stateHolder filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", [alphabetsArray objectAtIndex:indexPath.section]]];
+        //stateLabel.text = [tempStateHolder objectAtIndex:indexPath.row];
+        
+        [self.view addSubview:self.activityIndicatorView1];
+        [self.activityIndicatorView1 startAnimating];
+        
+        NSString *tempValueHolder = [sectionArray objectAtIndex:indexPath.row];
+        NSString *stateResultString = [NSString stringWithFormat:@"http://waterdata.usgs.gov/nwis/current?state_cd=%@&index_pmcode_STATION_NM=1&index_pmcode_DATETIME=2&index_pmcode_00060=3&group_key=NONE&format=sitefile_output&sitefile_output_format=rdb&column_name=agency_cd&column_name=site_no&column_name=station_nm&sort_key_2=site_no&html_table_group_key=NONE&rdb_compression=file&list_of_search_criteria=state_cd%%2Crealtime_parameter_selection", tempValueHolder];
+        dispatch_async(kBgQueue, ^{
+            NSData* data = [NSData dataWithContentsOfURL:
+                            [NSURL URLWithString:stateResultString]];
+            [self performSelectorOnMainThread:@selector(stateData:)
+                                   withObject:data waitUntilDone:YES];
+            
+        });
+        
+        _backButton.hidden = NO;
+        
+        
+    }else{
+        
+        
+        
+        NSString *stringForFilter = [riverAlphabetsArray objectAtIndex:indexPath.section];
+        
+        // orig code
+        //        NSArray *tempHolderArray = [splitHolder objectAtIndex:indexPath.row];
+        //        NSString *holderOne = [tempHolderArray objectAtIndex:0];
+        //        NSString *holderTwo = [NSString stringWithFormat:@" %@", [tempHolderArray objectAtIndex:1]];
+        //        NSString *originalString = [holderOne stringByAppendingString:holderTwo];
+        //[mainTable reloadData];
+        
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.siteName BEGINSWITH[cd] %@",stringForFilter];
+        
+        
+        //NSMutableArray *sectionArray = [NSMutableArray arrayWithArray:[riverDetailArray filteredArrayUsingPredicate:predicate]];
+        NSMutableArray *sectionArray = [NSMutableArray arrayWithArray:[finishedDictionaries filteredArrayUsingPredicate:predicate]];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *chosenObjects = [[defaults objectForKey:@"chosenObjects"] mutableCopy];
+        //        usersNameTwoArray = [[defaults objectForKey:@"usersNameTwoArray"] mutableCopy];
+        //        usersIDArray = [[defaults objectForKey:@"usersIDArray"] mutableCopy];
+        
+        if (chosenObjects.count < 1) {
+            chosenObjects = [[NSMutableArray alloc] init];
+        }
+        
+//        if (chosenObjects.count == 5 && !isPurchased) {
+//            //code
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Maximum Row Limit"
+//                                                            message:@"To use more then 5 locations purchase an upgrade. Slide rows on the main table to delete current instances."
+//                                                           delegate:self
+//                                                  cancelButtonTitle:@"No Thanks"
+//                                                  otherButtonTitles:@"Purchase", nil];
+//            [alert show];
+//        }
+        
+        NSDictionary *chosenDict = [sectionArray objectAtIndex:indexPath.row];
+        
+        [chosenObjects addObject:chosenDict];
+        
+        [defaults setObject:chosenObjects forKey:@"chosenObjects"];
+        
+        [defaults synchronize];
+        
+        NSLog(@"chosenDict %@", chosenDict);
+        
+        
+        //        NSMutableArray *tempNameHolderArray = [[NSMutableArray alloc] init];
+        //        for (NSArray *tempHolder in splitHolder) {
+        //            NSString *compstring = [NSString stringWithFormat:@"%@ %@", [tempHolder objectAtIndex:0], [tempHolder objectAtIndex:1]];
+        //            [tempNameHolderArray addObject:compstring];
+        //        }
+        //
+        //
+        //
+        //        for (int i = 0; i < tempNameHolderArray.count; i++) {
+        //            if ([originalString isEqualToString:[tempNameHolderArray objectAtIndex:i]]) {
+        //                idToPass = [siteNumberHolder objectAtIndex:i];
+        //                NSLog(@"testing");
+        //
+        //
+        //
+        //                [usersNameOneArray addObject:holderOne];
+        //                [usersNameTwoArray addObject:[tempHolderArray objectAtIndex:1]];
+        //                [usersIDArray addObject:idToPass];
+        //                [defaults setObject:usersNameOneArray forKey:@"riverNameArray"];
+        //                [defaults setObject:usersNameTwoArray forKey:@"riverLocationArray"];
+        //                [defaults setObject:usersIDArray forKey:@"riverIDArray"];
+        //                [defaults synchronize];
+        //                //[self performSegueWithIdentifier:@"detailPush" sender:self];
+        //                isInState = YES;
+        //                break;
+        //                
+        //            }
+        //        }
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+}
+
 
 
 #pragma mark - IBAction
