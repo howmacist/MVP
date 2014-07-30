@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52FDDF91ECE7477DABFF8318"
+               BlueprintIdentifier = "D550580405604B40B4DB2207"
                BuildableName = "libPods-ISRefreshControl.a"
                BlueprintName = "Pods-ISRefreshControl"
                ReferencedContainer = "container:Pods.xcodeproj">

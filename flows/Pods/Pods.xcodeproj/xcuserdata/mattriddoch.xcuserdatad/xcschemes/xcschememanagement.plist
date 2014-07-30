@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MONActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TYMActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C18E9A1594B4CB88A6BA284</key>
+		<key>4BC48913CC8E4019B7774B1A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0F3D9976D6DB49B5928ABB3B</key>
+		<key>54707BA443A5437EAC5168BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2925B827B12949E0949FAF4A</key>
+		<key>7587A061DBB444C5B8E5BA05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3CEF0CF4645C4BF2BA0792F8</key>
+		<key>B53704C6E0CA4588BA3D37F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>52FDDF91ECE7477DABFF8318</key>
+		<key>CCA522ACBEF1437EAE8F34D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6333DE20D7F04BAD8BE18FD0</key>
+		<key>D550580405604B40B4DB2207</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82BB1C166C684C638DA7E09D</key>
+		<key>F2E19B9E1C1943F5B8734710</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4BE613E519749E78F8BE17B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

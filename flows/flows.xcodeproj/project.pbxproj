@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		425512B819888AF2002D8E68 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 425512B719888AF2002D8E68 /* StoreKit.framework */; };
+		425512BB19888B28002D8E68 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 425512BA19888B28002D8E68 /* IAPHelper.m */; };
+		425512BE19888D08002D8E68 /* flowsIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 425512BD19888D08002D8E68 /* flowsIAPHelper.m */; };
 		42789D2019785A2C00003D42 /* addRow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1C19785A2C00003D42 /* addRow@2x.png */; };
 		42789D2119785A2C00003D42 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1D19785A2C00003D42 /* bg@2x.png */; };
 		42789D2219785A2C00003D42 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1E19785A2C00003D42 /* default@2x.png */; };
@@ -31,6 +34,7 @@
 		42789D6D1984681C00003D42 /* dashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42789D6C1984681C00003D42 /* dashTableViewCell.m */; };
 		42789D7019848FD300003D42 /* searchHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D6E19848FD300003D42 /* searchHeader@2x.png */; };
 		42789D7119848FD300003D42 /* searchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D6F19848FD300003D42 /* searchIcon@2x.png */; };
+		42789D731985E13800003D42 /* icon_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D721985E13800003D42 /* icon_add@2x.png */; };
 		42ABB204196E21AD0024C2A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB203196E21AD0024C2A8 /* Foundation.framework */; };
 		42ABB206196E21AD0024C2A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB205196E21AD0024C2A8 /* CoreGraphics.framework */; };
 		42ABB208196E21AD0024C2A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB207196E21AD0024C2A8 /* UIKit.framework */; };
@@ -59,6 +63,11 @@
 
 /* Begin PBXFileReference section */
 		2D9C05AB8BA74F05B368CFBC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		425512B719888AF2002D8E68 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		425512B919888B28002D8E68 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		425512BA19888B28002D8E68 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
+		425512BC19888D08002D8E68 /* flowsIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flowsIAPHelper.h; sourceTree = "<group>"; };
+		425512BD19888D08002D8E68 /* flowsIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = flowsIAPHelper.m; sourceTree = "<group>"; };
 		42789D1C19785A2C00003D42 /* addRow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addRow@2x.png"; sourceTree = "<group>"; };
 		42789D1D19785A2C00003D42 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		42789D1E19785A2C00003D42 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
@@ -98,6 +107,7 @@
 		42789D6C1984681C00003D42 /* dashTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dashTableViewCell.m; sourceTree = "<group>"; };
 		42789D6E19848FD300003D42 /* searchHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchHeader@2x.png"; sourceTree = "<group>"; };
 		42789D6F19848FD300003D42 /* searchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchIcon@2x.png"; sourceTree = "<group>"; };
+		42789D721985E13800003D42 /* icon_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_add@2x.png"; sourceTree = "<group>"; };
 		42ABB200196E21AD0024C2A8 /* flows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42ABB203196E21AD0024C2A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42ABB205196E21AD0024C2A8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				425512B819888AF2002D8E68 /* StoreKit.framework in Frameworks */,
 				42ABB206196E21AD0024C2A8 /* CoreGraphics.framework in Frameworks */,
 				42ABB208196E21AD0024C2A8 /* UIKit.framework in Frameworks */,
 				42ABB204196E21AD0024C2A8 /* Foundation.framework in Frameworks */,
@@ -146,6 +157,7 @@
 		42789D1B19785A2C00003D42 /* imageAssets */ = {
 			isa = PBXGroup;
 			children = (
+				42789D721985E13800003D42 /* icon_add@2x.png */,
 				42789D6E19848FD300003D42 /* searchHeader@2x.png */,
 				42789D6F19848FD300003D42 /* searchIcon@2x.png */,
 				42789D65198452A900003D42 /* infoIcon@2x.png */,
@@ -178,6 +190,10 @@
 				42789D3219785D9F00003D42 /* ValuesModel.m */,
 				42789D3319785D9F00003D42 /* VariableModel.h */,
 				42789D3419785D9F00003D42 /* VariableModel.m */,
+				425512B919888B28002D8E68 /* IAPHelper.h */,
+				425512BA19888B28002D8E68 /* IAPHelper.m */,
+				425512BC19888D08002D8E68 /* flowsIAPHelper.h */,
+				425512BD19888D08002D8E68 /* flowsIAPHelper.m */,
 			);
 			path = customObjects;
 			sourceTree = "<group>";
@@ -240,6 +256,7 @@
 		42ABB202196E21AD0024C2A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				425512B719888AF2002D8E68 /* StoreKit.framework */,
 				42ABB203196E21AD0024C2A8 /* Foundation.framework */,
 				42ABB205196E21AD0024C2A8 /* CoreGraphics.framework */,
 				42ABB207196E21AD0024C2A8 /* UIKit.framework */,
@@ -344,6 +361,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Matt's in-house apps";
 				TargetAttributes = {
+					42ABB1FF196E21AD0024C2A8 = {
+						DevelopmentTeam = 8AWZCL6BQ5;
+					};
 					42ABB223196E21AD0024C2A8 = {
 						TestTargetID = 42ABB1FF196E21AD0024C2A8;
 					};
@@ -385,6 +405,7 @@
 				42789D7119848FD300003D42 /* searchIcon@2x.png in Resources */,
 				42789D641984522600003D42 /* Logo_Dashboard@2x.png in Resources */,
 				42789D2219785A2C00003D42 /* default@2x.png in Resources */,
+				42789D731985E13800003D42 /* icon_add@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +473,8 @@
 				42789D5A19843B3300003D42 /* centerViewController.m in Sources */,
 				42ABB210196E21AD0024C2A8 /* main.m in Sources */,
 				42789D6D1984681C00003D42 /* dashTableViewCell.m in Sources */,
+				425512BB19888B28002D8E68 /* IAPHelper.m in Sources */,
+				425512BE19888D08002D8E68 /* flowsIAPHelper.m in Sources */,
 				42789D3819785D9F00003D42 /* addRiverObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,10 +603,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flows/flows-Prefix.pch";
 				INFOPLIST_FILE = "flows/flows-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -595,10 +621,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flows/flows-Prefix.pch";
 				INFOPLIST_FILE = "flows/flows-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

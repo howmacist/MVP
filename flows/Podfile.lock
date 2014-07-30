@@ -5,6 +5,7 @@ PODS:
     - ISMethodSwizzling (~> 0.0.2)
   - JASidePanels (1.3.2)
   - JSONModel (0.13.0)
+  - MONActivityIndicatorView (0.0.1)
   - TYMActivityIndicatorView (0.2.0)
 
 DEPENDENCIES:
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - ISRefreshControl (~> 1.4.1)
   - JASidePanels
   - JSONModel
+  - MONActivityIndicatorView
   - TYMActivityIndicatorView
 
 SPEC CHECKSUMS:
@@ -20,6 +22,7 @@ SPEC CHECKSUMS:
   ISRefreshControl: a22ffc641933ca489b85d192d591546f93c47d07
   JASidePanels: ca943907d88a0738c80755204c6098969d43e4e9
   JSONModel: 62ea96b49ea18a8b91ef89c249dba291d8601d82
+  MONActivityIndicatorView: 728965121e59cef32c1bc4676f6868e35f3c8c61
   TYMActivityIndicatorView: b65789b48feca6f6d546831d8ae5ad62acd58403
 
 COCOAPODS: 0.33.1

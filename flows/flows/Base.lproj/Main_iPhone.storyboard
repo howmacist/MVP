@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugF-UX-2zR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="598"/>
+            <point key="canvasLocation" x="734" y="601"/>
         </scene>
         <!--Center View Controller-->
         <scene sceneID="ll7-Sa-5sf">
@@ -55,26 +55,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add.png" translatesAutoresizingMaskIntoConstraints="NO" id="pCx-AK-QWg">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add.png" translatesAutoresizingMaskIntoConstraints="NO" id="pCx-AK-QWg">
                                 <rect key="frame" x="60" y="241" width="200" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ph-3a-mE2">
-                                <rect key="frame" x="0.0" y="503" width="320" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="addRow.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addClicked:" destination="pnK-4O-RC3" eventType="touchUpInside" id="So6-eG-1cS"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo_Dashboard.png" translatesAutoresizingMaskIntoConstraints="NO" id="DHE-6U-Xgc">
                                 <rect key="frame" x="113" y="32" width="94" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhS-Sh-fee">
-                                <rect key="frame" x="275" y="27" width="35" height="35"/>
+                                <rect key="frame" x="20" y="26" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="infoIcon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,17 +78,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="CSV-u9-V14">
-                                <rect key="frame" x="0.0" y="72" width="320" height="433"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="CSV-u9-V14">
+                                <rect key="frame" x="0.0" y="72" width="320" height="496"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dashCell" id="O3h-hh-DFx" customClass="dashTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dashCell" rowHeight="116" id="O3h-hh-DFx" customClass="dashTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="116"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O3h-hh-DFx" id="HA6-gC-FLE">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -109,11 +99,21 @@
                                     <outlet property="delegate" destination="pnK-4O-RC3" id="nep-el-J9i"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19k-Ls-cin" userLabel="addinstanceButton">
+                                <rect key="frame" x="273" y="30" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon_add.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addClicked:" destination="pnK-4O-RC3" eventType="touchUpInside" id="fee-go-qds"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="addInstanceButton" destination="6Ph-3a-mE2" id="afa-JB-COu"/>
+                        <outlet property="addInstanceButton" destination="19k-Ls-cin" id="H6v-6y-atA"/>
                         <outlet property="infoButton" destination="QhS-Sh-fee" id="Htd-94-l8V"/>
                         <outlet property="mainTable" destination="CSV-u9-V14" id="G2w-P5-iVd"/>
                         <segue destination="o7f-Gy-1CY" kind="modal" identifier="infoSegue" modalTransitionStyle="crossDissolve" id="ad8-Ak-iNt"/>
@@ -231,7 +231,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfe-FD-zkt">
+                            <button hidden="YES" opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfe-FD-zkt">
                                 <rect key="frame" x="140" y="25" width="40" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="searchIcon.png">
@@ -327,8 +327,8 @@
     <resources>
         <image name="Logo_Dashboard.png" width="94" height="24"/>
         <image name="add.png" width="200" height="85"/>
-        <image name="addRow.png" width="320" height="64"/>
         <image name="bg.png" width="320" height="568"/>
+        <image name="icon_add.png" width="37" height="37"/>
         <image name="infoIcon.png" width="18" height="17"/>
         <image name="searchHeader.png" width="320" height="70"/>
         <image name="searchIcon.png" width="40" height="36"/>

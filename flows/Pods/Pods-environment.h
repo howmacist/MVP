@@ -36,6 +36,12 @@
 #define COCOAPODS_VERSION_MINOR_JSONModel 13
 #define COCOAPODS_VERSION_PATCH_JSONModel 0
 
+// MONActivityIndicatorView
+#define COCOAPODS_POD_AVAILABLE_MONActivityIndicatorView
+#define COCOAPODS_VERSION_MAJOR_MONActivityIndicatorView 0
+#define COCOAPODS_VERSION_MINOR_MONActivityIndicatorView 0
+#define COCOAPODS_VERSION_PATCH_MONActivityIndicatorView 1
+
 // TYMActivityIndicatorView
 #define COCOAPODS_POD_AVAILABLE_TYMActivityIndicatorView
 #define COCOAPODS_VERSION_MAJOR_TYMActivityIndicatorView 0

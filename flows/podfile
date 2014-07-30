@@ -4,3 +4,4 @@ pod "GDIIndexBar"
 pod 'TYMActivityIndicatorView'
 pod 'JSONModel'
 pod 'ISRefreshControl', '~> 1.4.1'
+pod 'MONActivityIndicatorView'
