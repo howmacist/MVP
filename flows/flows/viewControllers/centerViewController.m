@@ -23,6 +23,7 @@
 @implementation centerViewController {
     ISRefreshControl *refreshControl;
     NSMutableArray *chosenObjectArray;
+    NSMutableArray *currentResultArray;
     MONActivityIndicatorView *indicatorView;
     NSArray *_products;
 }
@@ -42,6 +43,12 @@
     // Do any additional setup after loading the view.
     //_mainTable.contentInset = UIEdgeInsetsMake(-44.f, 0.f, -44.f, 0.f);
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appDidLaunch:)
+                                                 name:@"didLoadOne"
+                                               object:nil];
+    
     indicatorView = [[MONActivityIndicatorView alloc] init];
     indicatorView.delegate = self;
     indicatorView.center = self.view.center;
@@ -50,9 +57,17 @@
     //indicatorView.delay = 0.05;
     indicatorView.duration = 0.6;
     [self.view addSubview:indicatorView];
-    //[indicatorView startAnimating];
+    [indicatorView startAnimating];
     
     chosenObjectArray = [[NSMutableArray alloc] init];
+    currentResultArray = [[NSMutableArray alloc] init];
+    
+    //chosenObjectArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).chosenObjectArray;
+    
+    
+    for (NSDictionary *chosenDict in chosenObjectArray) {
+        NSLog(@"chosenDict %@", chosenDict);
+    }
     
     _mainTable.tableHeaderView = nil;
     _mainTable.tableFooterView = nil;
@@ -70,14 +85,31 @@
         //_mainTable.hidden = NO;
     }
     
-    [self reload];
+    //[self reload];
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - NSNotifications
+
+- (void)appDidLaunch:(NSNotification *) notification {
+    
+    if ([[notification name] isEqualToString:@"didLoadOne"]){
+        [indicatorView stopAnimating];
+        chosenObjectArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).chosenObjectArray;
+        currentResultArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).currentResultArray;
+        NSLog(@"app did recieve notification");
+    }
 }
 
 - (void)reload {
@@ -153,11 +185,40 @@
 - (UIColor *)activityIndicatorView:(MONActivityIndicatorView *)activityIndicatorView
       circleBackgroundColorAtIndex:(NSUInteger)index {
     // For a random background color for a particular circle
-    CGFloat red   = (arc4random() % 256)/255.0;
-    CGFloat green = (arc4random() % 256)/255.0;
-    CGFloat blue  = (arc4random() % 256)/255.0;
-    CGFloat alpha = 1.0f;
-    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+//    CGFloat red   = (arc4random() % 256)/255.0;
+//    CGFloat green = (arc4random() % 256)/255.0;
+//    CGFloat blue  = (arc4random() % 256)/255.0;
+//    CGFloat alpha = 1.0f;
+//    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+    UIColor *colorForActivity;
+    
+    switch (index) {
+        case 0:
+        {
+            colorForActivity = [UIColor colorWithRed:6/255.0f green:119/255.0f blue:236/255.0f alpha:1.0f];
+        }
+            break;
+        case 1:
+        {
+            colorForActivity = [UIColor colorWithRed:111/255.0f green:229/255.0f blue:125/255.0f alpha:1.0f];
+        }
+            break;
+        case 2:
+        {
+            colorForActivity =  [UIColor colorWithRed:234/255.0f green:105/255.0f blue:71/255.0f alpha:1.0f];
+        }
+            break;
+            
+        default:
+        {
+            colorForActivity =  [UIColor colorWithRed:234/255.0f green:105/255.0f blue:71/255.0f alpha:1.0f];
+        }
+            break;
+    }
+    
+    return colorForActivity;
+    
+    
 }
 
 
@@ -165,11 +226,16 @@
 #pragma mark - IBActions
 
 - (IBAction)infoClicked:(id)sender {
-    [self performSegueWithIdentifier:@"infoSegue" sender:self];
+    //[self performSegueWithIdentifier:@"infoSegue" sender:self];
+    currentResultArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).currentResultArray;
+    NSLog(@"test test");
 }
 
 - (IBAction)addClicked:(id)sender {
     [self performSegueWithIdentifier:@"addSegue" sender:self];
 }
+
+
+
 
 @end

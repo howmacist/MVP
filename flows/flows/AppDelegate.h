@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) NSMutableArray *chosenObjectArray;
+@property (strong, nonatomic) NSMutableArray *currentResultArray;
+
 @end

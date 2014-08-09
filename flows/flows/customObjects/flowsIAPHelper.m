@@ -15,8 +15,7 @@
     static flowsIAPHelper * sharedInstance;
     dispatch_once(&once, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
-                                      //@"com.flowsapps.upgrade",
-                                      @"upgrade",
+                                      @"com.flowsapps.upgrade",
                                       nil];
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });

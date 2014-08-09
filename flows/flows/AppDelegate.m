@@ -12,10 +12,11 @@
 #import "FLoutsideWrapper.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define KMainQueue dispatch_get_main_queue()
 
 @implementation AppDelegate{
-    NSMutableArray *chosenObjectsArray;
-    NSMutableArray *currentResultArray;
+    //NSMutableArray *chosenObjectsArray;
+    //NSMutableArray *currentResultArray;
     NSUserDefaults *defaults;
     NSMutableArray *finalMonthArray;
     NSMutableArray *meanArray;
@@ -33,10 +34,13 @@
     NSMutableArray *filteredMonthArray;
 }
 
+@synthesize chosenObjectArray;
+@synthesize currentResultArray;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     defaults = [NSUserDefaults standardUserDefaults];
-    chosenObjectsArray = [[NSMutableArray alloc] init];
+    chosenObjectArray = [[NSMutableArray alloc] init];
     currentResultArray = [[NSMutableArray alloc] init];
     finalMonthArray = [[NSMutableArray alloc] init];
     meanArray = [[NSMutableArray alloc] init];
@@ -44,10 +48,11 @@
     seventyFiveArray = [[NSMutableArray alloc] init];
     finalValues = [[NSMutableArray alloc] init];
     filteredMonthArray = [[NSMutableArray alloc] init];
-    chosenObjectsArray = [[defaults objectForKey:@"chosenObjects"] mutableCopy];
-    if (chosenObjectsArray.count > 0) {
+    chosenObjectArray = [[defaults objectForKey:@"chosenObjects"] mutableCopy];
+    if (chosenObjectArray.count > 0) {
         [self currentStationData];
     }
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -83,8 +88,8 @@
 
 -(void)currentStationData{
     NSString *siteHolderString;
-    for (int i = 0; i < chosenObjectsArray.count; i++) {
-        NSDictionary *dictAtIndex = [chosenObjectsArray objectAtIndex:i];
+    for (int i = 0; i < chosenObjectArray.count; i++) {
+        NSDictionary *dictAtIndex = [chosenObjectArray objectAtIndex:i];
         if (i == 0) {
             siteHolderString = [dictAtIndex objectForKey:@"siteNumber"];
             //}else if (i > 0 && 1 < chosenObjectsArray.count){
@@ -94,7 +99,13 @@
     }
     
     NSString *requestString = [NSString stringWithFormat:@"http://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=%@&parameterCd=00060", siteHolderString];
-    dispatch_async(kBgQueue, ^{
+    
+    
+    
+    
+    //dispatch_async(kBgQueue, ^{
+    dispatch_async(KMainQueue, ^{
+        
         NSData* data = [NSData dataWithContentsOfURL:
                         [NSURL URLWithString:requestString]];
         [self performSelectorOnMainThread:@selector(currentDataPull:)
@@ -102,12 +113,13 @@
         
     });
     
-    for (NSDictionary *chosenDict in chosenObjectsArray) {
+    for (NSDictionary *chosenDict in chosenObjectArray) {
         
         NSString *flowsting = [NSString stringWithFormat:@"http://waterdata.usgs.gov/nwis/dvstat/?site_no=%@&format=rdb&submitted_form=parameter_selection_list&PARAmeter_cd=00060", [chosenDict objectForKey:@"siteNumber"]];
         
         
-        dispatch_async(kBgQueue, ^{
+        //dispatch_async(kBgQueue, ^{
+        dispatch_async(KMainQueue, ^{
             NSData* flowData = [NSData dataWithContentsOfURL:
                                 [NSURL URLWithString:flowsting]];
             [self performSelectorOnMainThread:@selector(fetchedFlowData:)
@@ -117,11 +129,12 @@
         });
         
         
-        for (NSDictionary *current in chosenObjectsArray) {
+        for (NSDictionary *current in chosenObjectArray) {
             NSString *finalString = [NSString stringWithFormat:@"http://waterservices.usgs.gov/nwis/iv/?format=json&sites=%@&period=P3D&parameterCd=00060", [current objectForKey:@"siteNumber"]];
             NSURL *urlToPass = [NSURL URLWithString:finalString];
             
-            dispatch_async(kBgQueue, ^{
+            //dispatch_async(kBgQueue, ^{
+            dispatch_async(KMainQueue, ^{
                 NSData* data = [NSData dataWithContentsOfURL:
                                 urlToPass];
                 [self performSelectorOnMainThread:@selector(fetchedData:)
@@ -190,33 +203,6 @@
         BOOL filePathMatches = [pred evaluateWithObject:[workingDataArray objectAtIndex:i]];
         //if (![[tableNameArray objectAtIndex:i] isEqualToString:@"YAMPA RIVER BELOW SODA CREEK AT STEAMBOAT SPGS, CO"]) {
         if (filePathMatches) {
-            //[workingDataArray removeObjectAtIndex:i];
-            //i -= 1;
-            //NSLog(@"inter %lu", (unsigned long)workingDataArray.count);
-            
-            //flowHolder = nil;
-            
-            //            NSArray *tempHolderArray = [[workingDataArray objectAtIndex:i] componentsSeparatedByString:@"\t"];
-            //
-            ////            FLminMaxFlows *flowHolder = [[FLminMaxFlows alloc] init];
-            ////
-            ////            flowHolder.agencyCd = [tempHolderArray objectAtIndex:0];
-            ////            flowHolder.siteNum = [tempHolderArray objectAtIndex:1];
-            ////            flowHolder.paramaterCd = [tempHolderArray objectAtIndex:2];
-            ////            flowHolder.monthNu = [tempHolderArray objectAtIndex:4];
-            ////
-            ////            [objectHolderArray addObject:flowHolder];
-            ////
-            ////            flowHolder = nil;
-            //            if (![[tempHolderArray objectAtIndex:4] isEqualToString:@""]) {
-            //                [holderTest addObject:[tempHolderArray objectAtIndex:4]];
-            //                NSLog(@"item");
-            //            }
-            //
-            //
-            //            [cleanedHolderArray addObject:tempHolderArray];
-            //            NSLog(@"cleanedHolderArray %lu", (unsigned long)cleanedHolderArray.count);
-            
             
             NSArray *tempHolderArray = [[workingDataArray objectAtIndex:i] componentsSeparatedByString:@"\t"];
             
@@ -236,27 +222,12 @@
             flowHolder = nil;
             
             [cleanedHolderArray addObject:tempHolderArray];
-            NSLog(@"cleanedHolderArray %lu", (unsigned long)cleanedHolderArray.count);
+            //NSLog(@"cleanedHolderArray %lu", (unsigned long)cleanedHolderArray.count);
             
         }
     }
     
-    //NSLog(@"components %lu", (unsigned long)components.count);
-    //NSLog(@"cleanedHolderArray %@", cleanedHolderArray);
     
-    
-    //    for (FLminMaxFlows *temp in objectHolderArray) {
-    //
-    //        if ([temp.monthNu isEqualToString:@"3"]) {
-    ////            if ([temp.dayNu isEqualToString:@"17"] || [temp.dayNu isEqualToString:@"18"] || [temp.dayNu isEqualToString:@"19"] || [temp.dayNu isEqualToString:@"20"] || [temp.dayNu isEqualToString:@"21"] || [temp.dayNu isEqualToString:@"22"] || [temp.dayNu isEqualToString:@"23"] || [temp.dayNu isEqualToString:@"24"]){
-    //        if ([temp.dayNu isEqualToString:@"21"] || [temp.dayNu isEqualToString:@"22"] || [temp.dayNu isEqualToString:@"23"] || [temp.dayNu isEqualToString:@"24"]){
-    //                [meanArray addObject:temp.meanVa];
-    //                [twentyFiveArray addObject:temp.p25Va];
-    //                [seventyFiveArray addObject:temp.p75Va];
-    //            }
-    //        }
-    //
-    //    }
     
     
     for (NSString *tempMoDay in finalMonthArray) {
@@ -285,14 +256,9 @@
         
     }
     
-#pragma mark TODO table heights...
+
     
-    //    float twentyFiveMin = [twentyFiveArray valueForKeyPath:@"@min.self"];
-    //    float seventyFiveMax = [seventyFiveArray valueForKeyPath:@"@max.self"];
-    //    //NSNumber* finalMin = [finalValues valueForKeyPath:@"@min.self"];
-    //    float finalMin = (int)[finalValues valueForKeyPath:@"@min.self"];
-    //    //NSNumber* finalMax = [finalValues valueForKeyPath:@"@max.self"];
-    //    float finalMax = (int)[finalValues valueForKeyPath:@"@max.self"];
+    
     
     float finalXmax = -MAXFLOAT;
     float finalXmin = MAXFLOAT;
@@ -381,25 +347,9 @@
             //NSString *finalValue = [tempHolderDictionary objectForKey:@"value"];
             NSArray *finalValue = tempHolderDictionary.value;
             tempdetail = tempHolderDictionary.value;
-            
-            
-            
-            
-            
-            
-            
+        
             
         }
-        //            for (int i =0; 1<valueHolder.count; i++) {
-        //                ValuesModel *holderValue = [valueHolder objectAtIndex:i];
-        //                //NSDictionary *internalHolder = [holderDictionary objectForKey:@"value"];
-        //                NSArray *finalValue = holderValue.value;
-        //                NSLog(@"finalValue %@", finalValue);
-        //            }
-        //}
-        
-        
-        
         
         for (ValueDetail *detailInstance in tempdetail) {
             
@@ -443,17 +393,10 @@
     }
     
     
-    
-    
-    
-    
-    
-    //    dispatch_async(kBgQueue, ^{
-    //        NSData* data = [NSData dataWithContentsOfURL:
-    //                        flowData];
-    //        [self performSelectorOnMainThread:@selector(fetchedFlowData:)
-    //                               withObject:data waitUntilDone:YES];
-    //    });
+    NSLog(@"End of data");
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"didLoadOne"
+     object:nil];
     
 }
 

@@ -48,6 +48,9 @@
 		42ABB228196E21AD0024C2A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42ABB207196E21AD0024C2A8 /* UIKit.framework */; };
 		42ABB230196E21AD0024C2A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42ABB22E196E21AD0024C2A8 /* InfoPlist.strings */; };
 		42ABB232196E21AD0024C2A8 /* flowsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ABB231196E21AD0024C2A8 /* flowsTests.m */; };
+		42EE67FA19916AAB00934069 /* icon120@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EE67F919916AAB00934069 /* icon120@2x.png */; };
+		42EE67FD19916B2E00934069 /* icon58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EE67FB19916B2E00934069 /* icon58@2x.png */; };
+		42EE67FE19916B2E00934069 /* icon80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42EE67FC19916B2E00934069 /* icon80@2x.png */; };
 		61426D2D561146AEB0EDD64B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97819237F6064E03AE1E1FAD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +128,9 @@
 		42ABB22D196E21AD0024C2A8 /* flowsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "flowsTests-Info.plist"; sourceTree = "<group>"; };
 		42ABB22F196E21AD0024C2A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		42ABB231196E21AD0024C2A8 /* flowsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flowsTests.m; sourceTree = "<group>"; };
+		42EE67F919916AAB00934069 /* icon120@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon120@2x.png"; sourceTree = "<group>"; };
+		42EE67FB19916B2E00934069 /* icon58@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon58@2x.png"; sourceTree = "<group>"; };
+		42EE67FC19916B2E00934069 /* icon80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon80@2x.png"; sourceTree = "<group>"; };
 		97819237F6064E03AE1E1FAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +163,9 @@
 		42789D1B19785A2C00003D42 /* imageAssets */ = {
 			isa = PBXGroup;
 			children = (
+				42EE67FB19916B2E00934069 /* icon58@2x.png */,
+				42EE67FC19916B2E00934069 /* icon80@2x.png */,
+				42EE67F919916AAB00934069 /* icon120@2x.png */,
 				42789D721985E13800003D42 /* icon_add@2x.png */,
 				42789D6E19848FD300003D42 /* searchHeader@2x.png */,
 				42789D6F19848FD300003D42 /* searchIcon@2x.png */,
@@ -398,10 +407,13 @@
 				42789D7019848FD300003D42 /* searchHeader@2x.png in Resources */,
 				42789D2319785A2C00003D42 /* mainLogo@2x.png in Resources */,
 				42789D66198452A900003D42 /* infoIcon@2x.png in Resources */,
+				42EE67FA19916AAB00934069 /* icon120@2x.png in Resources */,
+				42EE67FD19916B2E00934069 /* icon58@2x.png in Resources */,
 				42ABB21F196E21AD0024C2A8 /* Images.xcassets in Resources */,
 				42789D2119785A2C00003D42 /* bg@2x.png in Resources */,
 				42ABB217196E21AD0024C2A8 /* Main_iPhone.storyboard in Resources */,
 				42ABB20E196E21AD0024C2A8 /* InfoPlist.strings in Resources */,
+				42EE67FE19916B2E00934069 /* icon80@2x.png in Resources */,
 				42789D7119848FD300003D42 /* searchIcon@2x.png in Resources */,
 				42789D641984522600003D42 /* Logo_Dashboard@2x.png in Resources */,
 				42789D2219785A2C00003D42 /* default@2x.png in Resources */,
