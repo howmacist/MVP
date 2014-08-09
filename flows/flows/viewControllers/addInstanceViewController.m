@@ -8,15 +8,14 @@
 
 #import "addInstanceViewController.h"
 #import "GDIIndexBar.h"
-#import "TYMActivityIndicatorView.h"
+#import "MONActivityIndicatorView.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
 
-@interface addInstanceViewController () <UITableViewDelegate, UITableViewDataSource, GDIIndexBarDelegate>
+@interface addInstanceViewController () <UITableViewDelegate, UITableViewDataSource, GDIIndexBarDelegate, MONActivityIndicatorViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UITableView *mainTable;
-@property (nonatomic, strong) TYMActivityIndicatorView *activityIndicatorView1;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 
@@ -56,6 +55,8 @@
     NSMutableArray *finishedDictionaries;
     
     GDIIndexBar *indexBar;
+    
+    MONActivityIndicatorView *indicatorView;
     
 }
 
@@ -125,10 +126,15 @@
     [[GDIIndexBar appearance] setBarBackgroundColor:[UIColor clearColor]];
     indexBar.delegate = self;
     [self.view addSubview:indexBar];
-    if (!_activityIndicatorView1) {
-        _activityIndicatorView1 = [[TYMActivityIndicatorView alloc] initWithActivityIndicatorStyle:TYMActivityIndicatorViewStyleLarge];
-        _activityIndicatorView1.hidesWhenStopped = YES;
-    }
+    indicatorView = [[MONActivityIndicatorView alloc] init];
+    indicatorView.delegate = self;
+    indicatorView.center = self.view.center;
+    indicatorView.numberOfCircles = 3;
+    indicatorView.radius = 20;
+    //indicatorView.delay = 0.05;
+    indicatorView.duration = 0.6;
+    //[self.view addSubview:indicatorView];
+    //[indicatorView startAnimating];
 
 }
 
@@ -302,10 +308,8 @@
         NSArray *sectionArray = [queryHolder filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", [alphabetsArray objectAtIndex:indexPath.section]]];
         NSArray *tempStateHolder = [stateHolder filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", [alphabetsArray objectAtIndex:indexPath.section]]];
         //stateLabel.text = [tempStateHolder objectAtIndex:indexPath.row];
-        
-        [self.view addSubview:self.activityIndicatorView1];
-        [self.activityIndicatorView1 startAnimating];
-        
+        [self.view addSubview:indicatorView];
+        [indicatorView startAnimating];
         NSString *tempValueHolder = [sectionArray objectAtIndex:indexPath.row];
         NSString *stateResultString = [NSString stringWithFormat:@"http://waterdata.usgs.gov/nwis/current?state_cd=%@&index_pmcode_STATION_NM=1&index_pmcode_DATETIME=2&index_pmcode_00060=3&group_key=NONE&format=sitefile_output&sitefile_output_format=rdb&column_name=agency_cd&column_name=site_no&column_name=station_nm&sort_key_2=site_no&html_table_group_key=NONE&rdb_compression=file&list_of_search_criteria=state_cd%%2Crealtime_parameter_selection", tempValueHolder];
         dispatch_async(kBgQueue, ^{
@@ -571,7 +575,7 @@
     
     [_mainTable reloadData];
     [indexBar reload];
-    [self.activityIndicatorView1 stopAnimating];
+    [indicatorView stopAnimating];
     
     //[mainTable reloadData];
 }
@@ -849,6 +853,48 @@
     
     
 }
+
+#pragma mark - activity indicator
+
+- (UIColor *)activityIndicatorView:(MONActivityIndicatorView *)activityIndicatorView
+      circleBackgroundColorAtIndex:(NSUInteger)index {
+    // For a random background color for a particular circle
+    //    CGFloat red   = (arc4random() % 256)/255.0;
+    //    CGFloat green = (arc4random() % 256)/255.0;
+    //    CGFloat blue  = (arc4random() % 256)/255.0;
+    //    CGFloat alpha = 1.0f;
+    //    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+    UIColor *colorForActivity;
+    
+    switch (index) {
+        case 0:
+        {
+            colorForActivity = [UIColor colorWithRed:6/255.0f green:119/255.0f blue:236/255.0f alpha:1.0f];
+        }
+            break;
+        case 1:
+        {
+            colorForActivity = [UIColor colorWithRed:111/255.0f green:229/255.0f blue:125/255.0f alpha:1.0f];
+        }
+            break;
+        case 2:
+        {
+            colorForActivity =  [UIColor colorWithRed:234/255.0f green:105/255.0f blue:71/255.0f alpha:1.0f];
+        }
+            break;
+            
+        default:
+        {
+            colorForActivity =  [UIColor colorWithRed:234/255.0f green:105/255.0f blue:71/255.0f alpha:1.0f];
+        }
+            break;
+    }
+    
+    return colorForActivity;
+    
+    
+}
+
 
 
 

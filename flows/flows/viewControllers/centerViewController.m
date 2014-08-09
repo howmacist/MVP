@@ -79,11 +79,12 @@
                        action:@selector(refresh)
              forControlEvents:UIControlEventValueChanged];
     
-    if (chosenObjectArray.count == 0) {
-        //_mainTable.hidden = YES;
-    }else{
-        //_mainTable.hidden = NO;
-    }
+    //if (chosenObjectArray.count == 0) {
+        _mainTable.hidden = YES;
+        //[_mainTable setAlpha:0.0];
+    //}else{
+    
+    //}
     
     //[self reload];
     
@@ -109,6 +110,18 @@
         chosenObjectArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).chosenObjectArray;
         currentResultArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).currentResultArray;
         NSLog(@"app did recieve notification");
+        [_mainTable reloadData];
+//        [UIView beginAnimations:nil context:NULL];
+//        [UIView setAnimationDuration:0.5];
+//        [_mainTable setAlpha:1.0];
+//        [UIView commitAnimations];
+        _mainTable.hidden = NO;
+//        _mainTable.alpha = 0.0f;
+//        [UIView beginAnimations:@"fadeInSecondView" context:NULL];
+//        [UIView setAnimationDuration:1.5];
+//        _mainTable.alpha = 1.0f;
+//        [UIView commitAnimations];
+        
     }
 }
 
@@ -174,6 +187,15 @@
     
     if (cell == nil) {
         cell = [[dashTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    NSDictionary *dictionaryForCell = [chosenObjectArray objectAtIndex:indexPath.row];
+    cell.titleLabel.text = [dictionaryForCell objectForKey:@"siteName"];
+    cell.locationLabel.text = [dictionaryForCell objectForKey:@"siteLocation"];
+    for (NSDictionary *innerDictionary in currentResultArray) {
+        if ([[dictionaryForCell objectForKey:@"siteNumber"] isEqualToString:[innerDictionary objectForKey:@"siteNumber"]]) {
+            cell.resultLabel.text = [innerDictionary objectForKey:@"siteValue"];
+        }
     }
     
     return cell;
