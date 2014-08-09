@@ -308,6 +308,8 @@
         NSArray *sectionArray = [queryHolder filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", [alphabetsArray objectAtIndex:indexPath.section]]];
         NSArray *tempStateHolder = [stateHolder filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", [alphabetsArray objectAtIndex:indexPath.section]]];
         //stateLabel.text = [tempStateHolder objectAtIndex:indexPath.row];
+        _mainTable.hidden = YES;
+        indexBar.hidden = YES;
         [self.view addSubview:indicatorView];
         [indicatorView startAnimating];
         NSString *tempValueHolder = [sectionArray objectAtIndex:indexPath.row];
@@ -402,7 +404,9 @@
         //            }
         //        }
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+        id<addInstanceViewControllerDelegate> strongDelegate = self.delegate;
+        
+        [self dismissViewControllerAnimated:YES completion:^{[strongDelegate addInstanceViewController:self didChooseValue:@"value here"];}];
     }
     
 }
@@ -417,6 +421,14 @@
 
 - (IBAction)searchClicked:(id)sender {
 }
+
+- (IBAction)backClicked:(id)sender {
+    [riverAlphabetsArray removeAllObjects];
+    [sortedDetailForTable removeAllObjects];
+    isInState = YES;
+    [_mainTable reloadData];
+}
+
 
 #pragma mark - TODO old code
 
@@ -524,7 +536,9 @@
     NSMutableArray *workingDataArray = [[NSMutableArray alloc] initWithArray:components];
     //NSMutableArray *cleanedHolderArray = [[NSMutableArray alloc] init];
     //NSMutableArray *objectHolderArray = [[NSMutableArray alloc] init];
-    
+    [siteNumberHolder removeAllObjects];
+    [sitNameHolder removeAllObjects];
+    [sortedArray removeAllObjects];
     
     
     //NSLog(@"components %lu", (unsigned long)components.count);
@@ -572,7 +586,8 @@
     
     //NSLog(@"splitHolder %@", splitHolder);
     isInState = NO;
-    
+    _mainTable.hidden = NO;
+    indexBar.hidden = NO;
     [_mainTable reloadData];
     [indexBar reload];
     [indicatorView stopAnimating];

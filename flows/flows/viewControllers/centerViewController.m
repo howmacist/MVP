@@ -12,8 +12,9 @@
 #import "MONActivityIndicatorView.h"
 #import <StoreKit/StoreKit.h>
 #import "flowsIAPHelper.h"
+#import "addInstanceViewController.h"
 
-@interface centerViewController () <UITableViewDelegate, UITableViewDataSource, MONActivityIndicatorViewDelegate>
+@interface centerViewController () <UITableViewDelegate, UITableViewDataSource, MONActivityIndicatorViewDelegate, addInstanceViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *addInstanceButton;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITableView *mainTable;
@@ -49,6 +50,7 @@
                                                  name:@"didLoadOne"
                                                object:nil];
     
+    
     indicatorView = [[MONActivityIndicatorView alloc] init];
     indicatorView.delegate = self;
     indicatorView.center = self.view.center;
@@ -57,7 +59,8 @@
     //indicatorView.delay = 0.05;
     indicatorView.duration = 0.6;
     [self.view addSubview:indicatorView];
-    [indicatorView startAnimating];
+    //[indicatorView startAnimating];
+    
     
     chosenObjectArray = [[NSMutableArray alloc] init];
     currentResultArray = [[NSMutableArray alloc] init];
@@ -79,19 +82,19 @@
                        action:@selector(refresh)
              forControlEvents:UIControlEventValueChanged];
     
-    //if (chosenObjectArray.count == 0) {
-        _mainTable.hidden = YES;
-        //[_mainTable setAlpha:0.0];
-    //}else{
-    
-    //}
+    _mainTable.hidden = YES;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    chosenObjectArray = [[defaults objectForKey:@"chosenObjects"] mutableCopy];
+    if (chosenObjectArray.count > 0) {
+        [indicatorView startAnimating];
+    }
     
     //[self reload];
     
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,6 +113,9 @@
         chosenObjectArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).chosenObjectArray;
         currentResultArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).currentResultArray;
         NSLog(@"app did recieve notification");
+        if (refreshControl) {
+            [refreshControl endRefreshing];
+        }
         [_mainTable reloadData];
 //        [UIView beginAnimations:nil context:NULL];
 //        [UIView setAnimationDuration:0.5];
@@ -123,6 +129,11 @@
 //        [UIView commitAnimations];
         
     }
+}
+
+- (void)addInstanceViewController:(addInstanceViewController *)viewController didChooseValue:(NSString *)value{
+    [[[UIApplication sharedApplication] delegate] performSelector:@selector(currentStationData)];
+    [indicatorView startAnimating];
 }
 
 - (void)reload {
@@ -139,12 +150,7 @@
 
 - (void)refresh
 {
-    int64_t delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        //[self toggleContents];
-        [refreshControl endRefreshing];
-    });
+    [[[UIApplication sharedApplication] delegate] performSelector:@selector(currentStationData)];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -240,6 +246,18 @@
     
     return colorForActivity;
     
+    
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"addSegue"])
+    {
+        addInstanceViewController *targetController = [segue destinationViewController];
+        targetController.delegate = self;
+    }
     
 }
 

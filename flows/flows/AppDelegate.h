@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) NSMutableArray *chosenObjectArray;
 @property (strong, nonatomic) NSMutableArray *currentResultArray;
+@property (strong, nonatomic) NSMutableArray *resultSetArray;
 
 @end

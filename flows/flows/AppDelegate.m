@@ -32,10 +32,12 @@
     BOOL arrayBool;
     BOOL innerArrayBool;
     NSMutableArray *filteredMonthArray;
+    int dataTracker;
 }
 
 @synthesize chosenObjectArray;
 @synthesize currentResultArray;
+@synthesize resultSetArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -48,6 +50,8 @@
     seventyFiveArray = [[NSMutableArray alloc] init];
     finalValues = [[NSMutableArray alloc] init];
     filteredMonthArray = [[NSMutableArray alloc] init];
+    resultSetArray = [[NSMutableArray alloc] init];
+    dataTracker = 0;
     chosenObjectArray = [[defaults objectForKey:@"chosenObjects"] mutableCopy];
     if (chosenObjectArray.count > 0) {
         [self currentStationData];
@@ -87,6 +91,8 @@
 #pragma mark data pull methods
 
 -(void)currentStationData{
+    chosenObjectArray = [[defaults objectForKey:@"chosenObjects"] mutableCopy];
+    [resultSetArray removeAllObjects];
     NSString *siteHolderString;
     for (int i = 0; i < chosenObjectArray.count; i++) {
         NSDictionary *dictAtIndex = [chosenObjectArray objectAtIndex:i];
@@ -128,9 +134,9 @@
             
         });
         
-        
-        for (NSDictionary *current in chosenObjectArray) {
-            NSString *finalString = [NSString stringWithFormat:@"http://waterservices.usgs.gov/nwis/iv/?format=json&sites=%@&period=P3D&parameterCd=00060", [current objectForKey:@"siteNumber"]];
+#pragma mark - TODO check extra call
+        //for (NSDictionary *current in chosenObjectArray) {
+            NSString *finalString = [NSString stringWithFormat:@"http://waterservices.usgs.gov/nwis/iv/?format=json&sites=%@&period=P3D&parameterCd=00060", [chosenDict objectForKey:@"siteNumber"]];
             NSURL *urlToPass = [NSURL URLWithString:finalString];
             
             //dispatch_async(kBgQueue, ^{
@@ -140,12 +146,14 @@
                 [self performSelectorOnMainThread:@selector(fetchedData:)
                                        withObject:data waitUntilDone:YES];
             });
-        }
+        //}
         
         
         //flowData = [NSURL URLWithString:flowsting];
         
     }
+    
+    NSLog(@"test finished");
     
 }
 
@@ -198,7 +206,7 @@
         
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"self BEGINSWITH %@", matchCriteria];
         
-        NSLog(@"object: %@", [workingDataArray objectAtIndex:i]);
+        //NSLog(@"object: %@", [workingDataArray objectAtIndex:i]);
         
         BOOL filePathMatches = [pred evaluateWithObject:[workingDataArray objectAtIndex:i]];
         //if (![[tableNameArray objectAtIndex:i] isEqualToString:@"YAMPA RIVER BELOW SODA CREEK AT STEAMBOAT SPGS, CO"]) {
@@ -325,7 +333,7 @@
                           error:&error];
     
     _outsideWrapper = [[FLoutsideWrapper alloc] initWithDictionary:json error:nil];
-    
+    [resultSetArray addObject:_outsideWrapper];
     [self handleTheData];
     
 }
@@ -358,7 +366,7 @@
                 if (innerArrayBool) {
                     //code
                     NSString *finalString = detailInstance.value;
-                    NSLog(@"value %@", finalString);
+                    //NSLog(@"value %@", finalString);
                     [finalValues addObject:finalString];
                     NSString *dateTimeString = detailInstance.dateTime;
                     //NSLog(@"dateTime %@", finalValue);
@@ -394,9 +402,15 @@
     
     
     NSLog(@"End of data");
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"didLoadOne"
-     object:nil];
+    if (dataTracker < chosenObjectArray.count-1) {
+        dataTracker += 1;
+    }else{
+        dataTracker = 0;
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"didLoadOne"
+         object:nil];
+    }
+    
     
 }
 
