@@ -27,7 +27,7 @@
     //[self setLeftPanel:[self.storyboard instantiateViewControllerWithIdentifier:@"leftViewController"]];
     [self setCenterPanel:[self.storyboard instantiateViewControllerWithIdentifier:@"centerViewController"]];
     [self setRightPanel:[self.storyboard instantiateViewControllerWithIdentifier:@"rightViewController"]];
-    //self.recognizesPanGesture = NO;
+    self.recognizesPanGesture = NO;
 }
 
 

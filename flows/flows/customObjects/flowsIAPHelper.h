@@ -8,7 +8,7 @@
 
 #import "IAPHelper.h"
 
-@interface flowsIAPHelper : IAPHelper
+@interface flowsIAPHelper : IAPHelper <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 
 + (flowsIAPHelper *)sharedInstance;
 

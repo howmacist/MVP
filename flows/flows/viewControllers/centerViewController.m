@@ -13,6 +13,9 @@
 #import <StoreKit/StoreKit.h>
 #import "flowsIAPHelper.h"
 #import "addInstanceViewController.h"
+#import "FLoutsideWrapper.h"
+#import "mySidePanelViewController.h"
+#import "UIViewController+JASidePanel.h"
 
 @interface centerViewController () <UITableViewDelegate, UITableViewDataSource, MONActivityIndicatorViewDelegate, addInstanceViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *addInstanceButton;
@@ -25,6 +28,8 @@
     ISRefreshControl *refreshControl;
     NSMutableArray *chosenObjectArray;
     NSMutableArray *currentResultArray;
+    NSMutableArray *resultSetArray;
+    NSMutableArray *resultForGraphs;
     MONActivityIndicatorView *indicatorView;
     NSArray *_products;
 }
@@ -49,7 +54,7 @@
                                              selector:@selector(appDidLaunch:)
                                                  name:@"didLoadOne"
                                                object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
     
     indicatorView = [[MONActivityIndicatorView alloc] init];
     indicatorView.delegate = self;
@@ -61,10 +66,12 @@
     [self.view addSubview:indicatorView];
     //[indicatorView startAnimating];
     
+    _mainTable.allowsMultipleSelectionDuringEditing = NO;
     
     chosenObjectArray = [[NSMutableArray alloc] init];
     currentResultArray = [[NSMutableArray alloc] init];
-    
+    resultSetArray = [[NSMutableArray alloc] init];
+    resultForGraphs = [[NSMutableArray alloc] init];
     //chosenObjectArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).chosenObjectArray;
     
     
@@ -89,7 +96,7 @@
         [indicatorView startAnimating];
     }
     
-    //[self reload];
+    
     
 }
 
@@ -112,6 +119,8 @@
         [indicatorView stopAnimating];
         chosenObjectArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).chosenObjectArray;
         currentResultArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).currentResultArray;
+        resultSetArray = ((AppDelegate *)[UIApplication sharedApplication].delegate).resultSetArray;
+        resultForGraphs = ((AppDelegate *)[UIApplication sharedApplication].delegate).resultForGraphs;
         NSLog(@"app did recieve notification");
         if (refreshControl) {
             [refreshControl endRefreshing];
@@ -131,10 +140,26 @@
     }
 }
 
+- (void)productPurchased:(NSNotification *)notification {
+    
+    NSString * productIdentifier = notification.object;
+    [_products enumerateObjectsUsingBlock:^(SKProduct * product, NSUInteger idx, BOOL *stop) {
+        if ([product.productIdentifier isEqualToString:productIdentifier]) {
+            //[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+            *stop = YES;
+        }
+    }];
+    
+}
+
+#pragma mark - delegates
+
 - (void)addInstanceViewController:(addInstanceViewController *)viewController didChooseValue:(NSString *)value{
     [[[UIApplication sharedApplication] delegate] performSelector:@selector(currentStationData)];
     [indicatorView startAnimating];
 }
+
+#pragma mark - In-app Purchase
 
 - (void)reload {
     _products = nil;
@@ -143,15 +168,24 @@
         if (success) {
             _products = products;
             NSLog(@"products %@", products);
+            [[flowsIAPHelper sharedInstance] buyProduct:[_products firstObject]];
+            
         }
         
     }];
+    
+    
+    
 }
+
+#pragma mark - pull data
 
 - (void)refresh
 {
     [[[UIApplication sharedApplication] delegate] performSelector:@selector(currentStationData)];
 }
+
+#pragma mark - UITableview delegate and datasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -162,9 +196,6 @@
 {
     return 0;
 }
-
-
-#pragma mark - UITableview delegate and datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -179,6 +210,17 @@
         return chosenObjectArray.count;
     //}
     
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -206,6 +248,27 @@
     
     return cell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //NSDictionary *cellDict = [chosenObjectsArray objectAtIndex:indexPath.row];
+    //pull detail data here!!!
+    FLoutsideWrapper *wrapperToPass = [resultSetArray objectAtIndex:indexPath.row];
+    NSString *resultForGraphString = [resultForGraphs objectAtIndex:indexPath.row];
+    NSDictionary *dictionaryForCell = [chosenObjectArray objectAtIndex:indexPath.row];
+    NSString *titleToPass = [dictionaryForCell objectForKey:@"siteName"];
+    NSString *locationToPass = [dictionaryForCell objectForKey:@"siteLocation"];
+    
+    [self.sidePanelController showRightPanelAnimated:YES];
+    
+    NSDictionary *theInfo =
+    [NSDictionary dictionaryWithObjectsAndKeys:wrapperToPass,@"wrapperToPass", resultForGraphString, @"resultForGraphString", titleToPass, @"titleToPass", locationToPass, @"locationToPass", nil];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"TestNotification"
+     object:self
+     userInfo:theInfo
+     ];
 }
 
 #pragma mark - activity indicator
@@ -272,7 +335,34 @@
 }
 
 - (IBAction)addClicked:(id)sender {
-    [self performSegueWithIdentifier:@"addSegue" sender:self];
+    if (chosenObjectArray.count < 5) {
+        [self performSegueWithIdentifier:@"addSegue" sender:self];
+    }else{
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ROFL"
+                                                        message:@"Dee dee doo doo."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:@"Buy", nil];
+        [alert show];
+        
+        
+    }
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked OK
+    if (buttonIndex == 1) {
+        
+//        SKProduct *product = [_products firstObject];
+//        NSLog(@"Buying %@...", product.productIdentifier);
+//        [[flowsIAPHelper sharedInstance] buyProduct:product];
+        [self reload];
+
+        // do something here...
+        
+    }
 }
 
 
