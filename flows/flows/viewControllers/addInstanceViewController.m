@@ -306,7 +306,7 @@
     if (isInState) {
         
         NSArray *sectionArray = [queryHolder filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", [alphabetsArray objectAtIndex:indexPath.section]]];
-        NSArray *tempStateHolder = [stateHolder filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", [alphabetsArray objectAtIndex:indexPath.section]]];
+        //NSArray *tempStateHolder = [stateHolder filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", [alphabetsArray objectAtIndex:indexPath.section]]];
         //stateLabel.text = [tempStateHolder objectAtIndex:indexPath.row];
         _mainTable.hidden = YES;
         indexBar.hidden = YES;

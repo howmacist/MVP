@@ -98,6 +98,7 @@
     seventyFiveArray = [[NSMutableArray alloc] init];
     
     finalValues = [[NSMutableArray alloc] init];
+    timeStampArray = [[NSMutableArray alloc] init];
     
     filteredMonthArray = [[NSMutableArray alloc] init];
     finalMonthArray = [[NSMutableArray alloc] init];
@@ -124,226 +125,29 @@
     if ([[notification name] isEqualToString:@"TestNotification"])
         NSLog (@"Successfully received the test notification!");
     NSDictionary *incomingInfo = notification.userInfo;
-    _outsideWrapper = [incomingInfo objectForKey:@"wrapperToPass"];
-    stringForGraphs = [incomingInfo objectForKey:@"resultForGraphString"];
-    NSLog(@"stringForGraphs %@", stringForGraphs);
+    //_outsideWrapper = [incomingInfo objectForKey:@"wrapperToPass"];
+    //stringForGraphs = [incomingInfo objectForKey:@"resultForGraphString"];
+    //NSLog(@"stringForGraphs %@", stringForGraphs);
     //[self fireUpGraphs];
     _titleLabel.text = [incomingInfo objectForKey:@"titleToPass"];
     _locationLabel.text = [incomingInfo objectForKey:@"locationToPass"];
-    [self handleTheData];
     
-}
-
--(void)handleTheData {
+    twentyFiveArray = [incomingInfo objectForKey:@"twentyFiveValues"];
+    seventyFiveArray = [incomingInfo objectForKey:@"seventyFiveValues"];
+    finalValues = [incomingInfo objectForKey:@"finalValues"];
+    //timeStampArray = [incomingInfo objectForKey:@"finalTimeStamp"];
     
-    //    tableNameArray= [[NSMutableArray alloc] init];
-    //    variableNameArray = [[NSMutableArray alloc] init];
-    timeStampArray = [[NSMutableArray alloc] init];
-    
-    //NSLog(@"outsideWrapper %@", outsideWrapper);
-    
-    for (FLmainmodel *mainModel in _outsideWrapper.value.timeSeries) {
-        //if ([mainModel.variable.variableDescription isEqualToString:@"Discharge, cubic feet per second"]) {
-        //NSLog(@"location %@", mainModel.sourceInfo.siteName);
-        //[tableNameArray addObject:mainModel.sourceInfo.siteName];
-        NSArray *valueHolder = mainModel.values;
-        for (ValuesModel *tempHolderDictionary in valueHolder) {
-            //NSString *finalValue = [tempHolderDictionary objectForKey:@"value"];
-            NSArray *finalValue = tempHolderDictionary.value;
-            tempdetail = tempHolderDictionary.value;
-            
-        }
-        //            for (int i =0; 1<valueHolder.count; i++) {
-        //                ValuesModel *holderValue = [valueHolder objectAtIndex:i];
-        //                //NSDictionary *internalHolder = [holderDictionary objectForKey:@"value"];
-        //                NSArray *finalValue = holderValue.value;
-        //                NSLog(@"finalValue %@", finalValue);
-        //            }
-        //}
-        
-        
-        
-        
-        for (ValueDetail *detailInstance in tempdetail) {
-            
-            if (arrayBool) {
-                
-                if (innerArrayBool) {
-                    //code
-                    NSString *finalString = detailInstance.value;
-                    NSLog(@"value %@", finalString);
-                    [finalValues addObject:finalString];
-                    NSString *dateTimeString = detailInstance.dateTime;
-                    //NSLog(@"dateTime %@", finalValue);
-                    [timeStampArray addObject:dateTimeString];
-                    
-                    NSString *testMonth = [dateTimeString substringWithRange:NSMakeRange(5, 2)];
-                    NSString *testDay = [dateTimeString substringWithRange:NSMakeRange(8, 2)];
-                    NSString *appendingHolder = [NSString stringWithFormat:@"%@%@",testMonth, testDay];
-                    
-                    [filteredMonthArray addObject:appendingHolder];
-                    innerArrayBool = NO;
-                }else{
-                    innerArrayBool = YES;
-                }
-                
-                
-                arrayBool = NO;
-            }else{
-                arrayBool = YES;
-            }
-            
-            
-            //[testDayArray addObject:testDay];
-            
-            
-        }
-        
-        NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:filteredMonthArray];
-        NSSet *uniqueDates = [orderedSet set];
-        NSLog(@"uniqueDates %@", uniqueDates);
-        finalMonthArray = [NSMutableArray arrayWithArray:[uniqueDates allObjects]];
-    }
-    
-    
-    
-    
-    
-    
-    
-//    dispatch_async(kBgQueue, ^{
-//        NSData* data = [NSData dataWithContentsOfURL:
-//                        flowData];
-//        [self performSelectorOnMainThread:@selector(fetchedFlowData:)
-//                               withObject:data waitUntilDone:YES];
-//    });
     
     [self setUpGraphs];
     
-    
 }
 
 
+
+
 - (void)setUpGraphs{
-//    NSString *responseHolder = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-//    //NSLog(@"responseHolder %@", responseHolder);
     
-    NSArray *components = [stringForGraphs componentsSeparatedByString:@"\n"];
-    
-    NSMutableArray *workingDataArray = [[NSMutableArray alloc] initWithArray:components];
-    NSMutableArray *cleanedHolderArray = [[NSMutableArray alloc] init];
-    NSMutableArray *objectHolderArray = [[NSMutableArray alloc] init];
-    
-    
-    
-    //NSLog(@"components %lu", (unsigned long)components.count);
-    
-    for (int i=0; i<workingDataArray.count; i++) {
-        NSString *matchCriteria = @"USGS";
-        
-        NSPredicate *pred = [NSPredicate predicateWithFormat:@"self BEGINSWITH %@", matchCriteria];
-        
-        NSLog(@"object: %@", [workingDataArray objectAtIndex:i]);
-        
-        BOOL filePathMatches = [pred evaluateWithObject:[workingDataArray objectAtIndex:i]];
-        //if (![[tableNameArray objectAtIndex:i] isEqualToString:@"YAMPA RIVER BELOW SODA CREEK AT STEAMBOAT SPGS, CO"]) {
-        if (filePathMatches) {
-            //[workingDataArray removeObjectAtIndex:i];
-            //i -= 1;
-            //NSLog(@"inter %lu", (unsigned long)workingDataArray.count);
-            
-            //flowHolder = nil;
-            
-            //            NSArray *tempHolderArray = [[workingDataArray objectAtIndex:i] componentsSeparatedByString:@"\t"];
-            //
-            ////            FLminMaxFlows *flowHolder = [[FLminMaxFlows alloc] init];
-            ////
-            ////            flowHolder.agencyCd = [tempHolderArray objectAtIndex:0];
-            ////            flowHolder.siteNum = [tempHolderArray objectAtIndex:1];
-            ////            flowHolder.paramaterCd = [tempHolderArray objectAtIndex:2];
-            ////            flowHolder.monthNu = [tempHolderArray objectAtIndex:4];
-            ////
-            ////            [objectHolderArray addObject:flowHolder];
-            ////
-            ////            flowHolder = nil;
-            //            if (![[tempHolderArray objectAtIndex:4] isEqualToString:@""]) {
-            //                [holderTest addObject:[tempHolderArray objectAtIndex:4]];
-            //                NSLog(@"item");
-            //            }
-            //
-            //
-            //            [cleanedHolderArray addObject:tempHolderArray];
-            //            NSLog(@"cleanedHolderArray %lu", (unsigned long)cleanedHolderArray.count);
-            
-            
-            NSArray *tempHolderArray = [[workingDataArray objectAtIndex:i] componentsSeparatedByString:@"\t"];
-            
-            FLminMaxFlows *flowHolder = [[FLminMaxFlows alloc] init];
-            
-            flowHolder.agencyCd = [tempHolderArray objectAtIndex:0];
-            flowHolder.siteNum = [tempHolderArray objectAtIndex:1];
-            flowHolder.paramaterCd = [tempHolderArray objectAtIndex:2];
-            flowHolder.monthNu = [tempHolderArray objectAtIndex:4];
-            flowHolder.dayNu = [tempHolderArray objectAtIndex:5];
-            flowHolder.meanVa = [tempHolderArray objectAtIndex:13];
-            flowHolder.p25Va = [tempHolderArray objectAtIndex:17];
-            flowHolder.p75Va = [tempHolderArray objectAtIndex:19];
-            
-            [objectHolderArray addObject:flowHolder];
-            
-            flowHolder = nil;
-            
-            [cleanedHolderArray addObject:tempHolderArray];
-            NSLog(@"cleanedHolderArray %lu", (unsigned long)cleanedHolderArray.count);
-            
-        }
-    }
-    
-    //NSLog(@"components %lu", (unsigned long)components.count);
-    //NSLog(@"cleanedHolderArray %@", cleanedHolderArray);
-    
-    
-    //    for (FLminMaxFlows *temp in objectHolderArray) {
-    //
-    //        if ([temp.monthNu isEqualToString:@"3"]) {
-    ////            if ([temp.dayNu isEqualToString:@"17"] || [temp.dayNu isEqualToString:@"18"] || [temp.dayNu isEqualToString:@"19"] || [temp.dayNu isEqualToString:@"20"] || [temp.dayNu isEqualToString:@"21"] || [temp.dayNu isEqualToString:@"22"] || [temp.dayNu isEqualToString:@"23"] || [temp.dayNu isEqualToString:@"24"]){
-    //        if ([temp.dayNu isEqualToString:@"21"] || [temp.dayNu isEqualToString:@"22"] || [temp.dayNu isEqualToString:@"23"] || [temp.dayNu isEqualToString:@"24"]){
-    //                [meanArray addObject:temp.meanVa];
-    //                [twentyFiveArray addObject:temp.p25Va];
-    //                [seventyFiveArray addObject:temp.p75Va];
-    //            }
-    //        }
-    //
-    //    }
-    
-    
-    for (NSString *tempMoDay in finalMonthArray) {
-        NSString *internalMonthHolder = [tempMoDay substringWithRange:NSMakeRange(0, 2)];
-        if ([internalMonthHolder hasPrefix:@"0"] && [internalMonthHolder length] > 1) {
-            internalMonthHolder = [internalMonthHolder substringFromIndex:1];
-        }
-        NSString *internalDayHolder = [tempMoDay substringWithRange:NSMakeRange(2, 2)];
-        if ([internalDayHolder hasPrefix:@"0"] && [internalDayHolder length] > 1) {
-            internalDayHolder = [internalDayHolder substringFromIndex:1];
-        }
-        
-        for (FLminMaxFlows *temp in objectHolderArray) {
-            
-            if ([temp.monthNu isEqualToString:internalMonthHolder]) {
-                if ([temp.dayNu isEqualToString:internalDayHolder]) {
-                    //[meanArray addObject:temp.meanVa];
-                    [twentyFiveArray addObject:temp.p25Va];
-                    [seventyFiveArray addObject:temp.p75Va];
-                }
-            }
-            
-            
-        }
-        
-        
-    }
-    
-#pragma mark TODO table heights...
+
     
     //    float twentyFiveMin = [twentyFiveArray valueForKeyPath:@"@min.self"];
     //    float seventyFiveMax = [seventyFiveArray valueForKeyPath:@"@max.self"];
@@ -397,7 +201,7 @@
         tempMaxHolder = finalXmax;
     }
     
-    tempMeanHolder = tempMaxHolder - tempMinHolder;
+    //tempMeanHolder = tempMaxHolder - tempMinHolder;
     //meanForGraphs = [NSNumber numberWithFloat:tempMeanHolder / 2];
     
     NSLog(@"test");
@@ -425,7 +229,7 @@
     
     
     //_twentyFiveView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 150, 320, 320)];
-    _twentyFiveView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 150, 320, 400)];
+    _twentyFiveView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(10, 150, 300, 400)];
     _twentyFiveView.delegate = self;
     
     
@@ -443,7 +247,7 @@
     
     
     //_seventyFiveView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 150, 320, 320)];
-    _seventyFiveView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 150, 320, 400)];
+    _seventyFiveView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(10, 150, 300, 400)];
     _seventyFiveView.delegate = self;
     
     
@@ -466,7 +270,7 @@
 
 - (void)populateTheDataGraph{
     //_dataView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 150, 320, 320)];
-    _dataView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 150, 320, 400)];
+    _dataView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(5, 150, 300, 400)];
     _dataView.delegate = self;
     
     
