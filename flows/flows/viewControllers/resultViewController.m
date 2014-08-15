@@ -284,7 +284,7 @@
     _dataView.colorTop = [UIColor clearColor];
     _dataView.colorLine = [UIColor whiteColor];
     _dataView.widthLine = 3;
-    _dataView.animationGraphEntranceSpeed = 0;
+    _dataView.animationGraphEntranceSpeed = 100;
     
     _dataView.minValue = [minForGraphs floatValue];
     _dataView.maxValue = [maxForGraphs floatValue];
