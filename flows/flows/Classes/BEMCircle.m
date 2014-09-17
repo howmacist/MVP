@@ -10,9 +10,8 @@
 #import "BEMCircle.h"
 
 @implementation BEMCircle
-@synthesize shouldDisplayConstantly;
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
@@ -24,7 +23,7 @@
 - (void)drawRect:(CGRect)rect {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextAddEllipseInRect(ctx, rect);
-    [[UIColor whiteColor] set];
+    [self.Pointcolor set];
     CGContextFillPath(ctx);
 }
 

@@ -15,7 +15,7 @@
 #import "FLmainmodel.h"
 #import "FLminMaxFlows.h"
 
-@interface resultViewController () <BEMSimpleLineGraphDelegate>
+@interface resultViewController () <BEMSimpleLineGraphDataSource>
 
 @property (nonatomic, strong) NSString *locationHolder;
 @property (nonatomic, retain) BEMSimpleLineGraphView *meanView;
@@ -402,7 +402,8 @@
     
     NSLog(@"test");
     
-    [self populateMeanGraph];
+    //[self populateMeanGraph];
+    [self populateTheDataGraph];
     
 }
 
@@ -431,14 +432,14 @@
     
     _twentyFiveView.enableTouchReport = NO;
     
-    _twentyFiveView.minValue = [minForGraphs floatValue];
-    _twentyFiveView.maxValue = [maxForGraphs floatValue];
+    //_twentyFiveView.minValue = [minValue floatValue];
+    //_twentyFiveView.maxValue = [maxForGraphs floatValue];
     _twentyFiveView.enableBezierCurve = NO;
     _twentyFiveView.colorBottom = [UIColor clearColor];
     _twentyFiveView.colorTop = [UIColor clearColor];
     _twentyFiveView.colorLine = [UIColor colorWithRed:6/255.0f green:119/255.0f blue:236/255.0f alpha:1.0f];
     _twentyFiveView.widthLine = 1;
-    _twentyFiveView.animationGraphEntranceSpeed = 0;
+    //_twentyFiveView.animationGraphEntranceSpeed = 0;
     
     
     
@@ -449,19 +450,19 @@
     
     _seventyFiveView.enableTouchReport = NO;
     
-    _seventyFiveView.minValue = [minForGraphs floatValue];
-    _seventyFiveView.maxValue = [maxForGraphs floatValue];
+    //_seventyFiveView.minValue = [minForGraphs floatValue];
+    //_seventyFiveView.maxValue = [maxForGraphs floatValue];
     _seventyFiveView.enableBezierCurve = NO;
     _seventyFiveView.colorBottom = [UIColor clearColor];
     _seventyFiveView.colorTop = [UIColor clearColor];
     _seventyFiveView.colorLine = [UIColor colorWithRed:234/255.0f green:105/255.0f blue:71/255.0f alpha:1.0f];
     _seventyFiveView.widthLine = 1;
-    _seventyFiveView.animationGraphEntranceSpeed = 0;
+    //_seventyFiveView.animationGraphEntranceSpeed = 0;
     
     
     //[self.view addSubview:meanView];
-    [self.view addSubview:_twentyFiveView];
-    [self.view addSubview:_seventyFiveView];
+    //[self.view addSubview:_twentyFiveView];
+    //[self.view addSubview:_seventyFiveView];
 }
 
 - (void)populateTheDataGraph{
@@ -471,6 +472,7 @@
     
     
     _dataView.enableTouchReport = YES;
+    _dataView.enablePopUpReport = YES;
     
     //dataView.minValue = 2;
     //dataView.maxValue = 10;
@@ -480,10 +482,10 @@
     _dataView.colorTop = [UIColor clearColor];
     _dataView.colorLine = [UIColor whiteColor];
     _dataView.widthLine = 3;
-    _dataView.animationGraphEntranceSpeed = 0;
+    //_dataView.animationGraphEntranceSpeed = 0;
     
-    _dataView.minValue = [minForGraphs floatValue];
-    _dataView.maxValue = [maxForGraphs floatValue];
+    //_dataView.minValue = [minForGraphs floatValue];
+    //_dataView.maxValue = [maxForGraphs floatValue];
     
     [self.view addSubview:_dataView];
  
@@ -502,33 +504,55 @@
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
     //if (graph == meanView) {
     //    return (int)[meanArray count];
-    if (graph == _twentyFiveView){
-        return (int)[twentyFiveArray count];
-    }else if (graph == _seventyFiveView){
-        return (int)[seventyFiveArray count];
-    }else if (graph == _dataView){
-        return (int)[finalValues count];
-    }
+//    if (graph == _twentyFiveView){
+//        return (int)[twentyFiveArray count];
+//    }else if (graph == _seventyFiveView){
+//        return (int)[seventyFiveArray count];
+//    }else if (graph == _dataView){
+//        return (int)[finalValues count];
+//    }
     
-    return 0;
+    return 20;
     
     //return  holderTest.count;
 }
 
+
+
+//- (NSInteger)numberOfPointsInGraph:(BEMSimpleLineGraphView *)graph {
+//    if (graph == _twentyFiveView){
+//        return (int)[twentyFiveArray count];
+//    }else if (graph == _seventyFiveView){
+//        return (int)[seventyFiveArray count];
+//    }else if (graph == _dataView){
+//        return (int)[finalValues count];
+//    }
+//    
+//    return 0;
+//}
+
 - (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
     //if (graph == meanView) {
     //    return [[meanArray objectAtIndex:index] floatValue];
-    if (graph == _twentyFiveView){
-        return [[twentyFiveArray objectAtIndex:index] floatValue];
-    }else if (graph == _seventyFiveView){
-        return [[seventyFiveArray objectAtIndex:index] floatValue];
-    }else if (graph == _dataView){
-        return [[finalValues objectAtIndex:index] floatValue];
-    }
-    return 0;
+//    if (graph == _twentyFiveView){
+//        return [[twentyFiveArray objectAtIndex:index] floatValue];
+//    }else if (graph == _seventyFiveView){
+//        return [[seventyFiveArray objectAtIndex:index] floatValue];
+//    }else if (graph == _dataView){
+//        return [[finalValues objectAtIndex:index] floatValue];
+//    }
+    return 50;
     //    NSLog(@"holderValue %f", [[holderTest objectAtIndex:index] floatValue]);
     //    return [[holderTest objectAtIndex:index] floatValue];
     //    NSLog(@"test");
+}
+
+- (UIColor *)lineGraph:(BEMSimpleLineGraphView *)graph lineColorForIndex:(NSInteger)index {
+    if ([[finalValues objectAtIndex:index] floatValue] > 115) {
+        return [UIColor redColor];
+    }else{
+        return [UIColor greenColor];
+    }
 }
 
 - (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {

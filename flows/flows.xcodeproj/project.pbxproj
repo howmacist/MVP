@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		420EC9D61996EFCF007A1BC0 /* BEMAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EC9CF1996EFCF007A1BC0 /* BEMAnimations.m */; };
-		420EC9D71996EFCF007A1BC0 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EC9D11996EFCF007A1BC0 /* BEMCircle.m */; };
-		420EC9D81996EFCF007A1BC0 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EC9D31996EFCF007A1BC0 /* BEMLine.m */; };
-		420EC9D91996EFCF007A1BC0 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EC9D51996EFCF007A1BC0 /* BEMSimpleLineGraphView.m */; };
 		425512B819888AF2002D8E68 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 425512B719888AF2002D8E68 /* StoreKit.framework */; };
 		425512BB19888B28002D8E68 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 425512BA19888B28002D8E68 /* IAPHelper.m */; };
 		425512BE19888D08002D8E68 /* flowsIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 425512BD19888D08002D8E68 /* flowsIAPHelper.m */; };
+		4275993219CA16D700E62DE2 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4275992D19CA16D700E62DE2 /* BEMCircle.m */; };
+		4275993319CA16D700E62DE2 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4275992F19CA16D700E62DE2 /* BEMLine.m */; };
+		4275993419CA16D700E62DE2 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4275993119CA16D700E62DE2 /* BEMSimpleLineGraphView.m */; };
 		42789D2019785A2C00003D42 /* addRow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1C19785A2C00003D42 /* addRow@2x.png */; };
 		42789D2119785A2C00003D42 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1D19785A2C00003D42 /* bg@2x.png */; };
 		42789D2219785A2C00003D42 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42789D1E19785A2C00003D42 /* default@2x.png */; };
@@ -70,19 +69,17 @@
 
 /* Begin PBXFileReference section */
 		2D9C05AB8BA74F05B368CFBC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		420EC9CE1996EFCF007A1BC0 /* BEMAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimations.h; sourceTree = "<group>"; };
-		420EC9CF1996EFCF007A1BC0 /* BEMAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimations.m; sourceTree = "<group>"; };
-		420EC9D01996EFCF007A1BC0 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
-		420EC9D11996EFCF007A1BC0 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
-		420EC9D21996EFCF007A1BC0 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
-		420EC9D31996EFCF007A1BC0 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
-		420EC9D41996EFCF007A1BC0 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
-		420EC9D51996EFCF007A1BC0 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
 		425512B719888AF2002D8E68 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		425512B919888B28002D8E68 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		425512BA19888B28002D8E68 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		425512BC19888D08002D8E68 /* flowsIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flowsIAPHelper.h; sourceTree = "<group>"; };
 		425512BD19888D08002D8E68 /* flowsIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = flowsIAPHelper.m; sourceTree = "<group>"; };
+		4275992C19CA16D700E62DE2 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
+		4275992D19CA16D700E62DE2 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
+		4275992E19CA16D700E62DE2 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
+		4275992F19CA16D700E62DE2 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
+		4275993019CA16D700E62DE2 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		4275993119CA16D700E62DE2 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
 		42789D1C19785A2C00003D42 /* addRow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addRow@2x.png"; sourceTree = "<group>"; };
 		42789D1D19785A2C00003D42 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		42789D1E19785A2C00003D42 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
@@ -172,19 +169,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		420EC9CD1996EFCF007A1BC0 /* BELine */ = {
+		4275992B19CA16D700E62DE2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				420EC9CE1996EFCF007A1BC0 /* BEMAnimations.h */,
-				420EC9CF1996EFCF007A1BC0 /* BEMAnimations.m */,
-				420EC9D01996EFCF007A1BC0 /* BEMCircle.h */,
-				420EC9D11996EFCF007A1BC0 /* BEMCircle.m */,
-				420EC9D21996EFCF007A1BC0 /* BEMLine.h */,
-				420EC9D31996EFCF007A1BC0 /* BEMLine.m */,
-				420EC9D41996EFCF007A1BC0 /* BEMSimpleLineGraphView.h */,
-				420EC9D51996EFCF007A1BC0 /* BEMSimpleLineGraphView.m */,
+				4275992C19CA16D700E62DE2 /* BEMCircle.h */,
+				4275992D19CA16D700E62DE2 /* BEMCircle.m */,
+				4275992E19CA16D700E62DE2 /* BEMLine.h */,
+				4275992F19CA16D700E62DE2 /* BEMLine.m */,
+				4275993019CA16D700E62DE2 /* BEMSimpleLineGraphView.h */,
+				4275993119CA16D700E62DE2 /* BEMSimpleLineGraphView.m */,
 			);
-			path = BELine;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		42789D1B19785A2C00003D42 /* imageAssets */ = {
@@ -305,7 +300,7 @@
 		42ABB209196E21AD0024C2A8 /* flows */ = {
 			isa = PBXGroup;
 			children = (
-				420EC9CD1996EFCF007A1BC0 /* BELine */,
+				4275992B19CA16D700E62DE2 /* Classes */,
 				42789D6A1984681C00003D42 /* customRows */,
 				42789D5419843A7900003D42 /* viewControllers */,
 				42789D2419785D9F00003D42 /* customObjects */,
@@ -497,8 +492,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420EC9D81996EFCF007A1BC0 /* BEMLine.m in Sources */,
-				420EC9D91996EFCF007A1BC0 /* BEMSimpleLineGraphView.m in Sources */,
+				4275993419CA16D700E62DE2 /* BEMSimpleLineGraphView.m in Sources */,
+				4275993219CA16D700E62DE2 /* BEMCircle.m in Sources */,
 				42789D3919785D9F00003D42 /* FLmainmodel.m in Sources */,
 				42789D3A19785D9F00003D42 /* FLoutsideWrapper.m in Sources */,
 				42789D3C19785D9F00003D42 /* SourceInfoModel.m in Sources */,
@@ -507,13 +502,12 @@
 				42789D6019843B5600003D42 /* addInstanceViewController.m in Sources */,
 				42789D4019785D9F00003D42 /* FLminMaxFlows.m in Sources */,
 				42789D3B19785D9F00003D42 /* insideWrapper.m in Sources */,
-				420EC9D71996EFCF007A1BC0 /* BEMCircle.m in Sources */,
 				42789D5D19843B4100003D42 /* resultViewController.m in Sources */,
 				42ABB214196E21AD0024C2A8 /* AppDelegate.m in Sources */,
+				4275993319CA16D700E62DE2 /* BEMLine.m in Sources */,
 				42789D691984647200003D42 /* aboutViewController.m in Sources */,
 				42789D5719843AB800003D42 /* mySidePanelViewController.m in Sources */,
 				42789D3F19785D9F00003D42 /* VariableModel.m in Sources */,
-				420EC9D61996EFCF007A1BC0 /* BEMAnimations.m in Sources */,
 				42789D5A19843B3300003D42 /* centerViewController.m in Sources */,
 				42ABB210196E21AD0024C2A8 /* main.m in Sources */,
 				42789D6D1984681C00003D42 /* dashTableViewCell.m in Sources */,
@@ -647,8 +641,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flows/flows-Prefix.pch";
 				INFOPLIST_FILE = "flows/flows-Info.plist";
@@ -665,8 +659,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "flows/flows-Prefix.pch";
 				INFOPLIST_FILE = "flows/flows-Info.plist";
